@@ -58,8 +58,10 @@ not user-selectable controls.
 ```text
 Prepare once
 AWS EC2 regional CSV
-  -> validate, filter, normalize, and pair rate components
-  -> processed price-option table + validation report
+  -> Reader / filtering / normalization (01 contract)
+  -> c6i_filtered_rate_components.parquet + filtering report
+  -> Pairing / price normalization (02 contract)
+  -> c6i_price_options.parquet + validation report
 
 When the app starts
 Processed table -> Loader -> cached prices
@@ -112,19 +114,42 @@ Cached prices + selected instance + runtime assumption
 
 ## Pieces
 
-### Data preparation — src/prepare_data.py
+### Preparation orchestration — src/prepare_data.py
 
-Receives the full EC2 regional CSV.
+Runs the two preparation stages below in order. It owns raw-file and
+intermediate-file I/O, source metadata, and atomic output writes.
+The stage functions receive DataFrames and return DataFrames and
+validation findings; they do not perform file I/O.
 
-Produces:
+### Reader, filtering, and normalization — src/filter_rates.py
+
+Implements the existing 01-data-filtering.md contract.
+
+Receives raw rate rows and source metadata. Returns comparable C6i
+rate components without pairing charges or calculating costs.
+
+The preparation command writes:
+
+- data/processed/c6i_filtered_rate_components.parquet
+- data/processed/filtering_report.json
+
+### Pairing and price normalization — src/pair_rates.py
+
+Implements the preparation portion of 02-cost-formulas.md.
+
+Receives filtered components. Returns one valid price option per
+instance type, RI term, and payment option, with its matching
+On-Demand rate and effective RI hourly cost.
+
+The preparation command writes:
 
 - data/processed/c6i_price_options.parquet
 - data/processed/validation_report.json
 
-Its job is to validate source data, apply fixed scope, normalize
-labels, pair RI components, and attach matching On-Demand prices.
-
-It knows nothing about Streamlit controls or page layout.
+Filtering must not perform pairing. View must not duplicate either
+stage. The financial definitions in Section E are shared by pairing
+and interactive scenario calculation; do not implement competing
+versions of the same formula.
 
 ### Loader — src/load_data.py
 
@@ -144,7 +169,8 @@ fraction from 0 to 1.
 Returns the scenario result table defined below.
 
 It selects the requested instance from the prepared table and
-performs all financial calculations. It does not read files,
+performs runtime-dependent financial calculations using the prepared
+price fields and the shared financial definitions. It does not read files,
 access Streamlit, or mutate its input.
 
 ### View — src/views.py
@@ -253,6 +279,32 @@ guessing their meaning.
 Check rate-dimension applicability. Do not silently collapse multiple
 tiers or distinct rates into one hourly price.
 
+**Filtered-component handoff (01 contract)**
+
+Write one row per retained AWS rate component to
+data/processed/c6i_filtered_rate_components.parquet:
+
+| Column | Type / meaning |
+|---|---|
+| price_list_version, publication_date | Source identity from metadata |
+| sku, offer_term_code | String identifiers for later pairing |
+| instance_type | C6i configuration identifier |
+| term_type | OnDemand or Reserved |
+| term_years | Null for On-Demand; integer 1 or 3 for RI |
+| purchase_option | OnDemand, No Upfront, Partial Upfront, or All Upfront |
+| offering_class | Null for On-Demand; standard for RI |
+| unit | Hrs or Quantity |
+| price_per_unit_usd | Exact source decimal string |
+
+Filtering reports source identity, input and retained counts, retained
+instance types, and excluded or ambiguous candidate rate keys with
+reasons. Summarize ordinary out-of-scope exclusions by reason rather
+than listing hundreds of thousands of unrelated rows.
+
+Preserve rate identifiers in diagnostics so malformed source rows can
+be traced. Stop with a clear availability error if the filtered output
+has no comparable On-Demand row or no RI component.
+
 ### C. Pairing and validation
 
 One raw row is a price component, not necessarily a complete
@@ -297,8 +349,9 @@ a valid processed file with a partial file.
 
 ### D. Processed price contract
 
-The processed table has one row per valid RI offer, identified by
-source version, SKU, and OfferTermCode.
+Pairing consumes the filtered-component handoff, not the raw CSV.
+The final processed table has one row per valid RI option for an
+instance type, term, and payment option.
 
 Required fields:
 
@@ -306,8 +359,6 @@ Required fields:
 |---|---|
 | price_list_version | Source version |
 | publication_date | Source publication date |
-| sku | RI product identifier |
-| offer_term_code | RI offer-term identifier |
 | instance_type | Selected EC2 configuration identifier |
 | term_years | Integer 1 or 3 |
 | purchase_option | Canonical payment label |
@@ -315,10 +366,14 @@ Required fields:
 | on_demand_hourly_usd | Comparable On-Demand runtime rate |
 | ri_upfront_usd | Upfront payment |
 | ri_hourly_usd | Recurring committed hourly rate |
+| effective_ri_hourly_usd | Full-term normalized RI rate, calculated during preparation |
 
-Preserve monetary fields as decimal strings in Parquet. Convert
-them directly to Decimal when calculating; do not first convert
-through a binary float.
+Preserve monetary fields as decimal strings in Parquet. Source
+payment components retain their exact decimal values; the derived
+effective rate uses the shared Decimal precision policy in Section E.
+Convert directly to Decimal when calculating, never through a float.
+Keep SKU and offer-term provenance in validation diagnostics; optional
+extra provenance columns must not change the required UI contract.
 
 If multiple otherwise valid offers share the same displayed
 instance/term/payment combination, report the ambiguity and exclude
@@ -354,6 +409,12 @@ CPU usage does not receive a proportional On-Demand price reduction.
 Reject non-finite inputs and values outside 0–1. Require a positive
 On-Demand hourly price.
 
+**Shared formulas (02 contract)**
+
+Preparation computes effective_ri_hourly once using these definitions
+and stores it as effective_ri_hourly_usd. Interactive calculation reads
+that field; it must not redefine the normalization formula.
+
 For each selected RI option, define:
 
 ```text
@@ -386,10 +447,10 @@ zero     -> Break-even
 negative -> On-Demand lower modeled cost
 ```
 
-Return the source price fields plus:
+Preserve the prepared price fields, including effective_ri_hourly_usd,
+and add these scenario fields:
 
 ```text
-effective_ri_hourly_usd
 ri_annualized_cost_usd
 on_demand_annual_cost_usd
 annual_savings_vs_od_usd
@@ -397,7 +458,9 @@ break_even_utilization
 comparison_status
 ```
 
-Numerical results remain Decimal values.
+Prepared monetary strings are converted to Decimal in the returned
+result. Pass through the prepared effective_ri_hourly_usd field;
+all computed numerical results remain Decimal values.
 
 Return an empty table with the same schema when the selected
 instance has no available valid RI options.
@@ -526,11 +589,15 @@ during startup.
 src/
     __init__.py
     prepare_data.py
+    filter_rates.py
+    pair_rates.py
     load_data.py
     scenario.py
     views.py
 data/
     processed/
+        c6i_filtered_rate_components.parquet
+        filtering_report.json
         c6i_price_options.parquet
         validation_report.json
 tests/
@@ -547,8 +614,10 @@ Raw downloads, local environments, and caches remain outside Git.
 ## Build order
 
 1. Read the full regional file and validate metadata and schema.
-2. Implement scope filtering, normalization, and RI pairing.
-3. Produce the processed table and validation report.
+2. Implement the 01 filtering contract and write the component table
+   and filtering report.
+3. Implement the 02 pairing contract and write the price-option table
+   and validation report.
 4. Implement the pure scenario calculator and check known fixtures.
 5. Build Loader and View against their contracts.
 6. Connect controls and verify complete user scenarios.
@@ -601,6 +670,12 @@ Break-even runtime     = 30%
 The View must show the full $1,576.80 upfront payment separately
 from the $525.60 annualized cost.
 
+Also test invented No Upfront, Partial Upfront, and All Upfront
+options for both one-year and three-year terms. Independently verify
+effective rates, annualized costs, break-even, and savings signs.
+Include missing Hrs, duplicate Hrs, duplicate Quantity, missing
+required upfront charges, and absent or ambiguous On-Demand matches.
+
 **Data and interface checks**
 
 - Invalid inputs, prices, and missing required columns produce
@@ -610,7 +685,8 @@ from the $525.60 annualized cost.
 - Every option has one comparable On-Demand price.
 - Source version and publication date survive preparation and appear
   on screen.
-- A new source file invalidates the processed-table cache.
+- Rebuilding the processed table after a source refresh invalidates
+  the processed-table cache.
 - Changing runtime updates results without raw-file access.
 - One-year and three-year sections use the same calculation definitions.
 - No missing value is displayed as a zero price.
