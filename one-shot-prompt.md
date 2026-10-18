@@ -8,13 +8,13 @@ own; it needs only the dataset repository and the public internet.
 
 ## Vision
 
-**Who uses it.**
+**User**
 
 A FinOps / Procurement Manager at Riot Games, in a hypothetical
 planning scenario where engineering has identified a Linux C6i
 configuration in us-east-1 for a baseline workload.
 
-**Why.**
+**Decision and Why This Tool Helps**
 
 The manager must assess whether to keep paying On-Demand or
 investigate a one-year or three-year Standard Reserved Instance
@@ -26,7 +26,7 @@ The tool brings those steps into one screen. It compares purchase
 options for the same configuration and shows when their modeled
 savings disappear.
 
-**What they care about.**
+**What They Care About**
 
 - Upfront payment and continuing hourly charges.
 - Annualized commitment cost and savings versus On-Demand.
@@ -35,7 +35,7 @@ savings disappear.
 - Clear distinctions between published prices, assumptions,
   and actual company costs.
 
-**Common scenarios.**
+**Use Cases**
 
 - Select an engineering-approved C6i instance type and inspect its
   available Standard RI purchase options beside On-Demand.
