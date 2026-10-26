@@ -94,3 +94,38 @@ A filled request (from the class lottery app):
 - **Priority:** high
 - **Status:** open
 
+### CR-05: Allow a negotiated On-Demand rate in the comparison
+
+- **From:** owendemian, 2026-10-26
+- **Part:** Published-price cost comparison; individual audit Part 1.
+- **Evidence:** In the professor build, `c6i.xlarge` at 70% expected billable runtime gives
+  $1,042.44 annual On-Demand cost, $985.15 annualized cost for a one-year No Upfront RI,
+  and $57.29 RI savings using the public $0.1700/hour On-Demand rate. An independent
+  calculation with a **hypothetical**, not Riot-specific, 10% On-Demand discount gives
+  $938.20 On-Demand cost and -$46.95 RI savings, reversing the lower-cost option. The app
+  states that private discounts are excluded, so this is a decision-scope limitation,
+  not an arithmetic error.
+- **Change:** Add an optional user-entered effective On-Demand hourly rate, labeled as an
+  internal assumption, while retaining the public rate as the default. Recalculate costs,
+  savings, break-even runtime, and comparison status from the selected rate, and identify
+  which rate was used in the result.
+- **Priority:** medium
+- **Status:** open
+
+### CR-06: Expose an auditable calculation trace with unrounded rates
+
+- **From:** owendemian, 2026-10-26
+- **Part:** One-year RI comparison table and annualized cost; individual audit Part 2.
+- **Evidence:** For `c6i.xlarge`, one-year No Upfront, the table displays recurring RI
+  cost as $0.1125/hour and annualized RI cost as $985.15. Multiplying the displayed
+  hourly rate by 8,760 gives $985.50. The committed price row for version
+  `20261015191316` contains $0.1124600000/hour; independent hourly accumulation with
+  that unrounded rate gives $985.15. The result is correct but cannot be reproduced
+  from the displayed rate alone.
+- **Change:** Provide an expandable or exportable calculation trace with the unrounded
+  source rate, price-list version and option identifiers, modeled hours, formula, and
+  rounding step for every financial result. Keep concise rounded values in the main
+  table, but let a reviewer reproduce the reported total without inspecting source files.
+- **Priority:** medium
+- **Status:** open
+
