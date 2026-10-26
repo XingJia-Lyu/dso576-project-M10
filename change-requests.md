@@ -60,3 +60,37 @@ A filled request (from the class lottery app):
 - **Priority:** medium
 - **Status:** open
 
+### CR-03: Require evidence before calling an instance engineering-approved
+
+- **From:** Yihan, 2026-10-26
+- **Part:** Instance-type selector and workload-fit handoff; personal audit Part 1.
+- **Evidence:** I opened the professor build, selected `c6i.large`, and kept expected billable
+  runtime at 80%. The selector offered nine values under the label "Engineering-approved
+  instance type," but the app showed no engineering approval record, workload requirement,
+  vCPU, memory, or performance-fit evidence. The page later stated that the tool does not assess
+  instance performance requirements. The options are valid public-price C6i rows, but that alone
+  does not establish engineering approval.
+- **Change:** Treat the selector values as public-price instance types by default. Add an
+  engineering-review input or data field that records an approved shortlist and its workload-fit
+  basis, and show useful capacity context such as vCPU and memory. Only describe a size as
+  engineering-approved when that evidence is present.
+- **Priority:** high
+- **Status:** open
+
+### CR-04: Show full-term RI commitment cost beside annualized cost
+
+- **From:** Yihan, 2026-10-26
+- **Part:** Three-year cost table and commitment exposure; personal audit Part 2.
+- **Evidence:** For `c6i.large` at 80% expected billable runtime, the three-year All Upfront row
+  showed `$856.00` upfront, `$0` recurring RI per hour, and `$285.33` annualized RI cost. My
+  independent Decimal calculation produced a full-term cost of `$856.00` and annualized cost of
+  `$285.33`, so the app's number is correct. However, the table has no plainly labeled full-term
+  RI cost for options that combine upfront and recurring charges; the manager must reconstruct
+  the total obligation from separate columns.
+- **Change:** Add a "Full-term RI commitment cost (USD)" column calculated as upfront payment
+  plus recurring hourly charges across all term hours. Keep annualized RI cost for yearly
+  comparison, but display both values and identify their periods so the total commitment is
+  explicit.
+- **Priority:** high
+- **Status:** open
+
