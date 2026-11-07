@@ -1,0 +1,258 @@
+{
+  "source_file": "data/raw/ec2_us-east-1.csv",
+  "publication_date": "2026-10-15T19:13:16Z",
+  "price_list_version": "20261015191316",
+  "raw_row_count": 393649,
+  "raw_column_count": 93,
+  "raw_size_bytes": 302869403,
+  "input_row_count": 393649,
+  "retained_component_count": 99,
+  "retained_by_term": {
+    "Reserved": 90,
+    "OnDemand": 9
+  },
+  "retained_instance_types": [
+    "c6i.12xlarge",
+    "c6i.16xlarge",
+    "c6i.24xlarge",
+    "c6i.2xlarge",
+    "c6i.32xlarge",
+    "c6i.4xlarge",
+    "c6i.8xlarge",
+    "c6i.large",
+    "c6i.xlarge"
+  ],
+  "scope_exclusions": {
+    "Product Family": 38304,
+    "Region Code": 1,
+    "Operating System": 247489,
+    "Tenancy": 54044,
+    "CapacityStatus": 7078,
+    "Pre Installed S/W": 30600,
+    "MarketOption": 6,
+    "License Model": 0,
+    "Instance Type": 15938,
+    "TermType": 0,
+    "OfferingClass": 90
+  },
+  "scope_exclusion_policy": "First failing condition",
+  "anomalies": [],
+  "candidate_ri_groups": [
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "38NPMPTW36"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "4NA7Y494T4"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "6QCMYABX3D"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "BPH4J8HBKS"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "HU7G6KETJZ"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "NQ3QZPMQV9"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "38NPMPTW36"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "4NA7Y494T4"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "6QCMYABX3D"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "BPH4J8HBKS"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "HU7G6KETJZ"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "NQ3QZPMQV9"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "38NPMPTW36"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "4NA7Y494T4"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "6QCMYABX3D"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "BPH4J8HBKS"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "HU7G6KETJZ"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "NQ3QZPMQV9"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "38NPMPTW36"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "4NA7Y494T4"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "6QCMYABX3D"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "BPH4J8HBKS"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "HU7G6KETJZ"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "NQ3QZPMQV9"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "38NPMPTW36"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "4NA7Y494T4"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "6QCMYABX3D"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "BPH4J8HBKS"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "HU7G6KETJZ"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "NQ3QZPMQV9"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "38NPMPTW36"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "4NA7Y494T4"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "6QCMYABX3D"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "BPH4J8HBKS"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "HU7G6KETJZ"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "NQ3QZPMQV9"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "38NPMPTW36"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "4NA7Y494T4"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "6QCMYABX3D"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "BPH4J8HBKS"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "HU7G6KETJZ"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "NQ3QZPMQV9"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "38NPMPTW36"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "4NA7Y494T4"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "6QCMYABX3D"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "BPH4J8HBKS"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "HU7G6KETJZ"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "NQ3QZPMQV9"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "38NPMPTW36"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "4NA7Y494T4"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "6QCMYABX3D"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "BPH4J8HBKS"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "HU7G6KETJZ"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "NQ3QZPMQV9"
+    }
+  ]
+}

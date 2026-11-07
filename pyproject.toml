@@ -1,0 +1,9 @@
+[project]
+name = "ri-commitment-explorer"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["pandas", "pyarrow", "streamlit", "altair>=5,<7", "pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

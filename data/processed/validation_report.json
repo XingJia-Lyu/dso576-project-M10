@@ -1,0 +1,725 @@
+{
+  "candidate_ri_group_count": 54,
+  "accepted_group_count": 54,
+  "rejected_group_count": 0,
+  "rejected_groups": [],
+  "accepted_groups": [
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "38NPMPTW36",
+      "instance_type": "c6i.12xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "4NA7Y494T4",
+      "instance_type": "c6i.12xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "6QCMYABX3D",
+      "instance_type": "c6i.12xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "BPH4J8HBKS",
+      "instance_type": "c6i.12xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "HU7G6KETJZ",
+      "instance_type": "c6i.12xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "3HSUEFTMXM6KT6VA",
+      "offer_term_code": "NQ3QZPMQV9",
+      "instance_type": "c6i.12xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "38NPMPTW36",
+      "instance_type": "c6i.8xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "4NA7Y494T4",
+      "instance_type": "c6i.8xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "6QCMYABX3D",
+      "instance_type": "c6i.8xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "BPH4J8HBKS",
+      "instance_type": "c6i.8xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "HU7G6KETJZ",
+      "instance_type": "c6i.8xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "64272PWRRRVEB4CX",
+      "offer_term_code": "NQ3QZPMQV9",
+      "instance_type": "c6i.8xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "38NPMPTW36",
+      "instance_type": "c6i.24xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "4NA7Y494T4",
+      "instance_type": "c6i.24xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "6QCMYABX3D",
+      "instance_type": "c6i.24xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "BPH4J8HBKS",
+      "instance_type": "c6i.24xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "HU7G6KETJZ",
+      "instance_type": "c6i.24xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "72K6VNKKNUPYQ96E",
+      "offer_term_code": "NQ3QZPMQV9",
+      "instance_type": "c6i.24xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "38NPMPTW36",
+      "instance_type": "c6i.16xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "4NA7Y494T4",
+      "instance_type": "c6i.16xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "6QCMYABX3D",
+      "instance_type": "c6i.16xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "BPH4J8HBKS",
+      "instance_type": "c6i.16xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "HU7G6KETJZ",
+      "instance_type": "c6i.16xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "AHVT86XYMA6ADYZE",
+      "offer_term_code": "NQ3QZPMQV9",
+      "instance_type": "c6i.16xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "38NPMPTW36",
+      "instance_type": "c6i.4xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "4NA7Y494T4",
+      "instance_type": "c6i.4xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "6QCMYABX3D",
+      "instance_type": "c6i.4xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "BPH4J8HBKS",
+      "instance_type": "c6i.4xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "HU7G6KETJZ",
+      "instance_type": "c6i.4xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "E8ZFW5VX39K37SVF",
+      "offer_term_code": "NQ3QZPMQV9",
+      "instance_type": "c6i.4xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "38NPMPTW36",
+      "instance_type": "c6i.large",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "4NA7Y494T4",
+      "instance_type": "c6i.large",
+      "term_years": 1,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "6QCMYABX3D",
+      "instance_type": "c6i.large",
+      "term_years": 1,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "BPH4J8HBKS",
+      "instance_type": "c6i.large",
+      "term_years": 3,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "HU7G6KETJZ",
+      "instance_type": "c6i.large",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "G34GXEYC28NK97K3",
+      "offer_term_code": "NQ3QZPMQV9",
+      "instance_type": "c6i.large",
+      "term_years": 3,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "38NPMPTW36",
+      "instance_type": "c6i.xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "4NA7Y494T4",
+      "instance_type": "c6i.xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "6QCMYABX3D",
+      "instance_type": "c6i.xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "BPH4J8HBKS",
+      "instance_type": "c6i.xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "HU7G6KETJZ",
+      "instance_type": "c6i.xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "JPN4K2NQVRWGTQGS",
+      "offer_term_code": "NQ3QZPMQV9",
+      "instance_type": "c6i.xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "38NPMPTW36",
+      "instance_type": "c6i.2xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "4NA7Y494T4",
+      "instance_type": "c6i.2xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "6QCMYABX3D",
+      "instance_type": "c6i.2xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "BPH4J8HBKS",
+      "instance_type": "c6i.2xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "HU7G6KETJZ",
+      "instance_type": "c6i.2xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "TRNMR2KK2A9257AV",
+      "offer_term_code": "NQ3QZPMQV9",
+      "instance_type": "c6i.2xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "38NPMPTW36",
+      "instance_type": "c6i.32xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "4NA7Y494T4",
+      "instance_type": "c6i.32xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "6QCMYABX3D",
+      "instance_type": "c6i.32xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "BPH4J8HBKS",
+      "instance_type": "c6i.32xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "HU7G6KETJZ",
+      "instance_type": "c6i.32xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront"
+    },
+    {
+      "sku": "WES4FF4FTRGSBS7W",
+      "offer_term_code": "NQ3QZPMQV9",
+      "instance_type": "c6i.32xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront"
+    }
+  ],
+  "valid_option_counts": [
+    {
+      "instance_type": "c6i.12xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.12xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.12xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.12xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.12xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.12xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.16xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.16xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.16xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.16xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.16xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.16xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.24xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.24xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.24xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.24xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.24xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.24xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.2xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.2xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.2xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.2xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.2xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.2xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.32xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.32xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.32xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.32xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.32xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.32xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.4xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.4xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.4xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.4xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.4xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.4xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.8xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.8xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.8xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.8xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.8xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.8xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.large",
+      "term_years": 1,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.large",
+      "term_years": 1,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.large",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.large",
+      "term_years": 3,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.large",
+      "term_years": 3,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.large",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.xlarge",
+      "term_years": 1,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.xlarge",
+      "term_years": 1,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.xlarge",
+      "term_years": 1,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.xlarge",
+      "term_years": 3,
+      "purchase_option": "All Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.xlarge",
+      "term_years": 3,
+      "purchase_option": "No Upfront",
+      "count": 1
+    },
+    {
+      "instance_type": "c6i.xlarge",
+      "term_years": 3,
+      "purchase_option": "Partial Upfront",
+      "count": 1
+    }
+  ],
+  "source_file": "data/raw/ec2_us-east-1.csv",
+  "publication_date": "2026-10-15T19:13:16Z",
+  "price_list_version": "20261015191316",
+  "raw_row_count": 393649,
+  "raw_column_count": 93,
+  "raw_size_bytes": 302869403,
+  "retained_component_count": 99,
+  "retained_component_counts": {
+    "Reserved": 90,
+    "OnDemand": 9
+  },
+  "output_row_count": 54,
+  "output_size_bytes": 8479
+}

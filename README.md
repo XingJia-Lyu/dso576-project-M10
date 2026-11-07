@@ -1,38 +1,77 @@
-# dataset_aws-price-list
+# RI Commitment Explorer
 
-This repo holds everything your team needs to start on the AWS Price List Bulk API offer files, the
-machine-readable price sheet that Amazon Web Services publishes for everything it sells. One row is one
-price: one product, under one purchase term, at one rate, in one region, on the day the file was published.
-The EC2 compute price sheet for Northern Virginia alone is 394,515 rows by 93 columns, and Amazon's EC2
-version index lists 122 past versions of that sheet, the oldest in force from 1 December 2015. This repo
-holds the data overview document, a small sample of every table so you can start reading code before
-anything finishes downloading, and a script that downloads the real files.
+A single-page Streamlit planning tool for comparing On-Demand with one-year and three-year Standard Reserved Instances for one Linux C6i instance-equivalent in us-east-1. Select an engineering-approved instance type, then change expected billable runtime. Runtime is an editable assumption about hours needed, not CPU utilization.
 
-**A note on accuracy.** The documents here were written with AI assistance and then checked against the linked official sources. Linked sources are authoritative. Unlinked statements, and anything marked "(unverified)", should be checked before you rely on them. Report mistakes to the professor.
+## Start from a fresh clone
 
-## Files
+Install Python 3.11+ and [uv](https://docs.astral.sh/uv/), then run these commands from the cloned repository folder.
 
-- `data_overview_aws-price-list.md`: the dataset description, covering industry context, possible
-  stakeholders and decisions (illustrative examples only), what is already known, download instructions,
-  the full data dictionary and the traps.
-- `download_data.py`: downloads the eleven data files into a `data` folder next to the script.
-- `sample/`: eleven small files, one per table, plus a README saying how they were drawn.
-- `.gitignore`: keeps the downloaded `data` folder out of Git.
+macOS (zsh):
 
-## Get the files
-
-```
-cd ~/dso576
-git clone https://github.com/USC-DSO-576-PS/dataset_aws-price-list.git
-cd dataset_aws-price-list
-uv run python download_data.py
+```zsh
+uv run streamlit run dashboard.py
 ```
 
-If `git clone` asks for a username and password, you have not been added to the repo yet: use Route A and tell the professor. Route A is the browser download, described in section 4 of the data overview document. Use Route A as well if `download_data.py` fails or prints an HTTP error: some networks block scripted requests, and the browser route produces the same eleven files with the same names.
+Windows (PowerShell):
 
-That downloads 643 MB. Section 4 of the data overview document explains what it downloads, how long it takes,
-how much disk space you need, why one address on this endpoint is a 6 GB file you must not click, and how to
-open the files in pandas, including the two arguments they will not open correctly without.
+```powershell
+uv run streamlit run dashboard.py
+```
 
-This repo is read-only for students: read it, clone it, but do not push to it. Copy
-`data_overview_aws-price-list.md` into your team's `project` folder as the Module 3 handout asks.
+No environment activation is needed. Stop the server with Ctrl+C. To run tests, use `uv run python -m pytest` on either system.
+
+The committed price-options Parquet is sufficient to run the app. No AWS account, credentials, raw download, or preparation is needed at startup. For hosting, use `dashboard.py` as the entry point and install the dependencies in `pyproject.toml` with uv. Set `RI_PRICES_PATH` to override the default `data/processed/c6i_price_options.parquet`.
+
+## Prepare or refresh
+
+```bash
+uv run python -m src.prepare_data
+uv run python -m src.prepare_data --raw-path /path/to/ec2_us-east-1.csv
+uv run python -m src.prepare_data --refresh
+uv run pytest
+```
+
+Preparation searches the explicit path first, then `../dataset_aws-price-list/data/ec2_us-east-1.csv`, then `data/raw/ec2_us-east-1.csv`, and otherwise downloads the full regional AWS file. Paths are resolved from the project root. An explicit path must exist. The dataset repo's random samples are never used.
+
+`--refresh` downloads the regional snapshot to `data/raw/ec2_us-east-1.csv` and uses it for that run. It cannot be combined with `--raw-path`. Neither the sibling dataset nor explicit input files are overwritten. Raw files and local environments are gitignored.
+
+Preparation validates metadata/schema, filters rate components, pairs RI charges, and validates the final handoff before publishing. Failed runs exit nonzero, preserve published outputs, and write `data/processed/failed_report.json`. Successful runs remove a stale failure report. Files are staged and replaced atomically one at a time, with rollback on write exceptions; stop preparation before restarting an app to avoid observing a multi-file publication in progress. The runtime app reads only the final Parquet.
+
+The checked-in snapshot has 54 options across nine instances, sourced from AWS publication 2026-10-15T19:13:16Z, version 20261015191316. These are published snapshot prices, not live prices.
+
+## Main files
+
+- `src/filter_rates.py`: fixed product scope, normalization, and invalid component records.
+- `src/scenario.py`: one definition of financial measures, with Decimal precision 28.
+- `src/pair_rates.py`: component pairing, On-Demand matching, ambiguity exclusions, reconciliation.
+- `src/prepare_data.py`: source lookup, raw I/O, staging, publication, and reports.
+- `src/load_data.py`: runtime Parquet contract validation without Streamlit.
+- `src/views.py`: display formatting, handoff validation, separate term tables.
+- `dashboard.py`: two session-state controls, cache keyed by path/mtime/size, orchestration.
+- `tests/`: financial fixtures, synthetic data failures, source handling, loader/view contracts, and Streamlit interactions.
+- `data/processed/filtering_report.json` and `validation_report.json`: source identity, actual counts, provenance, and findings.
+
+Preparation also writes `c6i_filtered_rate_components.parquet`. It is a generated intermediate, gitignored because the app does not read it; the final price table and both reports are committed.
+
+## Interpretation
+
+RI charges are payable regardless of runtime. Annualized cost allocates the full commitment across its term; it is not a payment schedule. Upfront charges stay separate. Negative savings mean a modeled cost increase. Break-even can exceed 100% and is never clamped.
+
+The model uses 8,760 hours per year, constant rates and runtime, and no time-value-of-money adjustment. It excludes private discounts, credits, actual usage, existing commitments, capital costs, workload changes, resale/exchange proceeds, storage, network, taxes, and other service charges. Annualization does not make one-year and three-year commitment risks equivalent.
+
+The next action is to investigate expected runtime, commitments, and negotiated prices with internal data before a purchasing decision. The app does not establish Riot's actual costs or select an instance for performance.
+
+## Enhanced version
+
+Added maximum commitment term and upfront-budget filters, a separate eligible
+shortlist, lowest modeled cost explanations within each term, and an interactive
+runtime sensitivity chart. Dots show attainable break-even points; a dashed line
+shows the entered runtime. Full original comparison tables remain above the
+filtered analysis. No performance sizing or actual Riot usage is inferred.
+
+Run with `uv run streamlit run dashboard.py`. Alternatively install
+`python -m pip install -r requirements.txt`, then run
+`python -m streamlit run dashboard.py`. Hosting entry point: `dashboard.py`.
+The processed price snapshot is included. No AWS credentials are needed.
+
+See `ENHANCEMENTS.md` for changes, validation scope, and verification status.
