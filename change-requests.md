@@ -72,6 +72,16 @@ A filled request (from the class lottery app):
 - **Acceptance:** The stated 18-month case reproduces $1,116.90 On-Demand, $832.30 one-year All Upfront plus remainder, and $856 three-year full obligation. Zero/invalid horizons are handled explicitly. Contract obligations are never prorated away when demand ends. Existing runtime/budget comparisons are unchanged.
 - **Status:** open — proposal only; not implemented
 
+### CR-04: Put the RI-only scope beside the shortlist verdict
+
+- **From:** Priya Savings Plans versus RI case, 2026-11-08
+- **Part:** The green eligible-option summary under `Plan within your constraints`
+- **Evidence:** For `c6i.large`, 80% runtime, a one-year maximum term and $0 maximum upfront payment, the live app says the one-year No Upfront RI is the lowest modeled eligible option and saves $103.11 per modeled year. The app compares Standard RIs with On-Demand only. It has no Compute Savings Plan or EC2 Instance Savings Plan rows and no account-specific Savings Plans recommendation, although AWS documents that Compute Savings Plans can continue across instance-family and Region changes.
+- **Change:** Put an RI-only scope statement immediately beside the green summary: this is the lowest eligible Standard RI in the current public-price model, not the best AWS purchase product. When flexibility across family or Region matters, direct the user to compare an account-specific Savings Plans recommendation and Engineering's future workload plan before approval.
+- **Priority:** high
+- **Acceptance:** The current RI and On-Demand numbers remain unchanged. Every positive shortlist summary names its RI-only scope. The app does not estimate Savings Plan savings without Savings Plan rates and account data. The next-action text points flexible-workload users to the missing account-specific comparison.
+- **Status:** open — proposal only; not implemented
+
 ## Integration notes — 2026-11-08
 
 - CR-01 is retained exactly as supplied, including its pending commit reference. Add the actual implementation commit after checking the team repository; this merge does not authenticate deployment history.
