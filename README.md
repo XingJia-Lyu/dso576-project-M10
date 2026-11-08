@@ -1,6 +1,8 @@
 # RI Commitment Explorer
 
-A single-page Streamlit planning tool for comparing On-Demand with one-year and three-year Standard Reserved Instances for one Linux C6i instance-equivalent in us-east-1. Select an engineering-approved instance type, then change expected billable runtime. Runtime is an editable assumption about hours needed, not CPU utilization.
+RI Commitment Explorer is for FinOps, Engineering, Finance and Procurement teams deciding whether an AWS EC2 commitment is worth investigating for an engineering-approved workload. The decision matters because a Reserved Instance can reduce modeled compute cost, but its charges remain payable even when demand falls. The app makes the price, runtime and upfront-payment tradeoffs visible before a team validates its real usage, existing coverage and negotiated rates.
+
+This single-page Streamlit tool compares On-Demand with one-year and three-year Standard Reserved Instances for one Linux C6i instance-equivalent in `us-east-1`. Select an engineering-approved instance type, then change expected billable runtime. Runtime is an editable assumption about hours needed, not CPU utilization.
 
 ## Live app and demo video
 
@@ -43,6 +45,8 @@ Preparation searches the explicit path first, then `../dataset_aws-price-list/da
 Preparation validates metadata/schema, filters rate components, pairs RI charges, and validates the final handoff before publishing. Failed runs exit nonzero, preserve published outputs, and write `data/processed/failed_report.json`. Successful runs remove a stale failure report. Files are staged and replaced atomically one at a time, with rollback on write exceptions; stop preparation before restarting an app to avoid observing a multi-file publication in progress. The runtime app reads only the final Parquet.
 
 The checked-in snapshot has 54 options across nine instances, sourced from AWS publication 2026-10-15T19:13:16Z, version 20261015191316. These are published snapshot prices, not live prices.
+
+The live app uses the complete processed table for its deliberately narrow scope: all 54 combinations of nine C6i instance types, two commitment terms and three payment options that passed the project's filters. It does not load the full AWS EC2 price catalog at runtime. Other regions, instance families, operating systems, tenancy choices and purchase models are left out, so the app's comparisons and minimums apply only inside this fixed scope; removing those records does not change the displayed values for the retained C6i options.
 
 ## Main files
 
