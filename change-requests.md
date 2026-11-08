@@ -51,20 +51,29 @@ A filled request (from the class lottery app):
 - **Priority:** high
 - **Status:** built in this enhanced ZIP; commit pending team integration
 
-### CR-02: Make runtime assumptions understandable through visible hours-based feedback
 
-- **From:** Ziling, 2026-10-24
-- **Part:** Expected billable runtime input on the main dashboard; personal audit Part 1.
-- **Evidence:** While using the app with c6i.16xlarge at 80% and 50%, I initially needed an additional explanation of expected billable runtime. The existing hover help distinguishes it from CPU utilization, but the meaning was not immediately clear to me. Treating CPU usage as runtime could materially change the cost comparison even when the chosen instance runs continuously.
-- **Change:** Keep the current input and add a visible definition plus hours-based feedback tied to the selected percentage. For example, at 50%, show 4,380 modeled hours per year out of 8,760; explicitly explain that a continuously running instance has 100% runtime even at low CPU usage, and RI commitment charges remain payable when unused.
+### CR-02: Make existing-coverage verification an explicit checkpoint
+
+- **From:** Casey case contributor (submitted case), integrated 2026-11-08
+- **Part:** Eligible-results summary and interpretation of savings
+- **Evidence:** c6i.large, 100% runtime, maximum one year and $0 upfront yields $252.03/year savings against uncovered On-Demand ($744.60 versus $492.57). Casey assumes an existing matching All Upfront RI covers the whole horizon, with no other eligible use. A new RI then adds $492.57 of commitment rather than saving $252.03. The app already warns that coverage must be checked; it does not gather coverage status.
+- **Change:** Add an explicit Uncovered / Covered / Not checked coverage checkpoint beside the summary. For Covered or Not checked, emphasize that displayed savings assume uncovered On-Demand usage and direct users to verify coverage and expiry. Preserve the existing price table and calculations; do not infer actual coverage or recommend a purchase.
+- **Priority:** high
+- **Acceptance:** All three answers preserve price values and eligibility. Covered/Not checked show the baseline warning. No answer is presented as account evidence or purchasing approval. Existing runtime, budget and term cases retain their results.
+- **Status:** open — proposal only; not implemented
+
+### CR-03: Compare finite workload horizons with full commitment obligations
+
+- **From:** Maya case, submitted in Kelven's package; integrated 2026-11-08
+- **Part:** Commitment-duration comparison for migrations and retiring workloads
+- **Evidence:** One c6i.large runs continuously for 18 modeled months, with no existing coverage, reuse or resale. At recorded prices, one-year All Upfront plus six months On-Demand costs $832.30; three-year All Upfront creates a full $856 obligation, despite its lower $285.33 annualized price. The current app warns about different terms but has no project-horizon input.
+- **Change:** Add an optional finite-horizon comparison alongside the constant-runtime view. Count every resulting RI obligation, including charges after demand ends; add an On-Demand remainder when a shorter RI expires. Clearly state constant future price, modeled-month, reuse and resale assumptions. Preserve existing tables and avoid claiming exhaustive purchasing optimization.
 - **Priority:** medium
-- **Status:** open
+- **Acceptance:** The stated 18-month case reproduces $1,116.90 On-Demand, $832.30 one-year All Upfront plus remainder, and $856 three-year full obligation. Zero/invalid horizons are handled explicitly. Contract obligations are never prorated away when demand ends. Existing runtime/budget comparisons are unchanged.
+- **Status:** open — proposal only; not implemented
 
-### CR-03: Show how purchase-option costs cross as expected runtime changes
+## Integration notes — 2026-11-08
 
-- **From:** Ziling, 2026-10-24
-- **Part:** Cost comparison presentation and scenario sensitivity; personal audit Part 1.
-- **Evidence:** For c6i.16xlarge, changing runtime from 80% to 50% changes annual savings for the one-year No Upfront option from $3,300.07 to -$3,848.09, Partial Upfront from $4,050.19 to -$3,097.97, and All Upfront from $4,350.76 to -$2,797.40. The three-year options remain positive at 50%. The tables include signed values and comparison statuses, but I had to compare scenarios manually; the cost relationships across runtime levels are not visible together. These are observed app outputs from source version 20261012193925, not evidence of a calculation error.
-- **Change:** Retain the exact-value tables and add a separate cost-versus-runtime chart for each commitment term. Show expected runtime from 0% to 100%, annual/annualized cost in USD, an On-Demand line and the available RI commitment-cost lines, their break-even crossings, and the selected-runtime marker. Use the existing calculator rather than a second formula implementation. Keep thresholds above 100% explicitly unattainable and do not combine different term totals into a best-plan ranking.
-- **Priority:** medium
-- **Status:** open
+- CR-01 is retained exactly as supplied, including its pending commit reference. Add the actual implementation commit after checking the team repository; this merge does not authenticate deployment history.
+- Jordan, Alex and Winnie propose no additional request in their submitted current cases.
+- An earlier validation draft proposed a downside-runtime summary as CR-02, but stated that it had not been appended to the shared log. The supplied current log contains only actual CR-01; the earlier draft proposal is not part of the latest submitted Alex case. The next available actual number is therefore used for Casey. If the live repository has acquired other requests since this supplied copy, merge and renumber these new entries before uploading; never overwrite or delete existing requests.
