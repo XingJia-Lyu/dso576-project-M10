@@ -1,8 +1,8 @@
 # RI Commitment Explorer - Validation
 
 **Team project:** `XingJia-Lyu/dso576-project-M10`  
-**Integrated:** November 8, 2026  
-**Case personas:** Jordan, Alex, Winnie, Casey and Maya
+**Integrated:** November 9, 2026<br>
+**Case personas:** Jordan, Alex, Winnie, Casey, Maya and Priya
 
 RI Commitment Explorer helps a FinOps team examine whether a Standard Reserved Instance (RI) commitment costs less than On-Demand for an engineering-approved Amazon EC2 instance. The intended organizational setting is Riot Games, treated as a hypothetical customer, not an actual partner or validated user. The decision is whether an eligible RI merits further internal review given expected billable runtime, an upfront-payment limit and a maximum acceptable commitment term. Committing too much can create charges for unused resources; committing too little can forgo discounts.
 
@@ -10,7 +10,7 @@ The app uses a processed AWS public price snapshot for one Linux/shared-tenancy 
 
 **Public team-app link:** [RI Commitment Explorer - official team deployment](https://dso576-project-m10-dgvbvbjl9c4y23u6decrwc.streamlit.app/)
 
-> **Evidence status:** Five submitted case narratives are integrated below. Twenty-two supplied case screenshots and the prior test-result screenshot are included. Alex's three new captures document the 80%/50% cost reversal and the 80% constrained shortlist. Case observations and access checks are attributed to their contributors; this integration did not authenticate the exact deployed commit. The final package check on November 8, 2026 confirmed anonymous access to the public app, generated a `c6i.large` comparison at 80% runtime, opened the unlisted demo video without signing in, and reran the supplied suite (`68 passed, 1 skipped`).
+> **Evidence status:** Six submitted case narratives are integrated below. Twenty-five case screenshots and the prior test-result screenshot are included. Priya's three new captures document the live `c6i.large` input, the one-year/$0 shortlist and the app's model limits. Case observations and access checks are attributed to their contributors; this integration did not authenticate the exact deployed commit. The package review on November 9, 2026 confirmed anonymous access to the public app and opened the 4:11 unlisted demo video without signing in. The most recently supplied test result remains `68 passed, 1 skipped`; the suite was not rerun during this case integration.
 
 ## 1. Design
 
@@ -20,7 +20,7 @@ The primary intended users are Riot Games' FinOps practitioners reviewing cloud 
 
 The FinOps Foundation describes rate optimization as evaluating commitment discounts against demand, financial constraints and flexibility, coordinated across these roles [R2]. AWS documents that RIs require a one- or three-year term and that recurring charges remain payable even when resources are not used [R3]. Together these sources support comparing the whole obligation rather than choosing an advertised hourly discount. Our inference is that a clear cost threshold and constraint-aware shortlist can assist an early purchase review. We have not interviewed Riot staff or measured adoption, decision quality or time saved.
 
-Engineering approval is a prerequisite supplied by the user: the app does not identify a sufficiently powerful instance. The intended next action is to validate demand, available discount coverage and actual contractual pricing internally. Engineering workload owners are relevant secondary users and reviewers. The cases below cover procurement, runtime uncertainty, configuration budgeting, existing coverage and finite project life. These are constructed decision scenarios, not user-research interviews.
+Engineering approval is a prerequisite supplied by the user: the app does not identify a sufficiently powerful instance. The intended next action is to validate demand, available discount coverage and actual contractual pricing internally. Engineering workload owners are relevant secondary users and reviewers. The cases below cover procurement, runtime uncertainty, configuration budgeting, existing coverage, finite project life and the RI-versus-Savings-Plans product boundary. These are constructed decision scenarios, not user-research interviews.
 
 ### 1.2 Why the features serve the decision
 
@@ -45,6 +45,7 @@ The first six comparison measures and the original data pipeline were already pr
 | Spreadsheet based on the same prices | A valid independent comparison, not an inferior source by definition | It can reproduce every modeled result; the app packages the controls and comparisons consistently but has no measured usability advantage |
 | AWS Cost Explorer recommendations | Complement rather than replace | They use account-specific historical usage; AWS notes that historical usage is assumed to represent the future [R4]. The app has no such account evidence |
 | Savings Plans, Spot and other EC2 purchase choices | Acknowledge but do not optimize in this MVP | Their data and operational requirements are outside the prepared table. AWS recommends Savings Plans over RIs for flexibility [R3], so an RI-only minimum cannot be called the best AWS purchase |
+| RI-only scope beside the shortlist verdict | Open, CR-04 | Priya's cross-product decision shows that a green RI result can be correct inside the table but cannot rank Savings Plans that are absent from it |
 | More regions, instance families and operating systems | Exclude from the fixed-scope prototype | Requires additional comparable data and engineering suitability checks; a price-only ranking would be misleading |
 | Automatic purchase recommendation or purchase execution | Do not provide | Demand, private prices and existing commitment coverage are absent; a favorable modeled result is insufficient approval evidence |
 | Workload forecasting or CPU-based runtime inference | Do not provide | The dataset contains prices, not workload telemetry. The input is an assumption and not a forecast |
@@ -73,8 +74,9 @@ Official sources consulted November 7, 2026; each supports the specific claims a
 | Winnie | Compare two engineering-approved sizes under identical constraints | Ten screenshots; cost-only comparison holds up; no new request |
 | Casey | Avoid buying overlapping coverage for an already-covered workload | Three screenshots; CR-02 proposes an explicit coverage checkpoint |
 | Maya — submitted in Kelven's case package | Match commitment length to an 18-month migration | Three screenshots; CR-03 proposes a finite-horizon comparison; formal case |
+| Priya | Decide whether a flexible workload should use the screened Standard RI or investigate a Savings Plan | Three live screenshots and independent calculation; break for the cross-product decision; CR-04 |
 
-All five narratives are retained, including context, sources, alternatives, inputs, interpretation and verdict. They test different decision quantities, even where the instance or price inputs overlap. Casey and Maya are difficult boundary cases where correct app arithmetic is insufficient for the actual decision. Source access and live observations below are contributor-reported. Missing evidence is not replaced with screenshots from another scenario.
+All six narratives are retained, including context, sources, alternatives, inputs, interpretation and verdict. They test different decision quantities, even where the instance or price inputs overlap. Casey, Maya and Priya are difficult boundary cases where correct app arithmetic is insufficient for the actual decision. Source access and live observations below are contributor-reported. Missing evidence is not replaced with screenshots from another scenario.
 
 ### 2.2 Jordan
 
@@ -755,6 +757,89 @@ Official sources reviewed November 7, 2026. The quotes identify the supporting t
 
 The contributor references repository `7206a34`, `verify_case.py`, `calculation-output.txt`, `calculation-results.json` and `live-evidence.json`. Those supporting files were not supplied, so their contents, recorded hash and commit are not independently verified here. Section 3.5 provides an executed scalar check of the stated arithmetic. Matching displayed amounts and source metadata does not independently identify the deployed commit or authenticate the full raw-to-processed pipeline.
 
+### 2.7 Priya
+
+**App:** RI Commitment Explorer<br>
+**Prepared:** November 8, 2026<br>
+**Decision in brief.** Do not approve a Standard Reserved Instance from this app alone. Use the result to screen the RI side, then compare it with an account-specific Savings Plans recommendation and Engineering's migration plan before committing.
+
+> **Evidence status:** Three screenshots were captured from the public team deployment with the selected inputs visible. The committed `verify_priya.py` independently reproduces the displayed RI-versus-On-Demand values without importing the app's calculation code. The public deployment was reopened without signing in on November 9, 2026. This evidence verifies the observed scenario, not the app's exact deployed commit or any real AWS account recommendation.
+
+#### 1. The person and the decision
+
+Priya is a fictional FinOps lead at a hypothetical game studio. Engineering expects one compute workload to run steadily during a game launch, but the instance family and AWS Region may change as the service scales. Priya must decide whether to investigate the Standard RI shown by the team's app or use a more flexible Savings Plan instead.
+
+The person, company, workload and expected changes are case assumptions, not facts about Riot Games or an actual AWS account. The decision differs from the other cases because it compares commitment products rather than testing runtime, upfront budget, sizing, existing coverage or a finite project horizon.
+
+#### 2. Their real situation and alternatives
+
+The FinOps Foundation's [Rate Optimization capability](https://www.finops.org/framework/capabilities/rate-optimization/) says FinOps should coordinate with Engineering on future resource plans, evaluate resource-based commitments such as RIs and spend-based commitments such as Savings Plans, and match restrictions to validated demand.
+
+AWS documents the relevant product boundary:
+
+- [Savings Plans types](https://docs.aws.amazon.com/savingsplans/latest/userguide/plan-types.html) explains that Compute Savings Plans can continue to apply across EC2 family, size, Region, operating-system and tenancy changes, while EC2 Instance Savings Plans are tied to an instance family in a selected Region.
+- [Compute Savings Plans and Reserved Instances](https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-ris.html) distinguishes a Savings Plan's hourly spend commitment from a configuration-based Standard RI and notes that Savings Plans do not create a capacity reservation by themselves.
+- [Understanding Savings Plans recommendations](https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-recommendations.html) explains that AWS Cost Explorer recommendations use an account's past usage to estimate projected spend, savings and a recommended hourly commitment.
+
+Priya therefore has three relevant alternatives: remain On-Demand while uncertainty is high; buy a Standard RI after confirming that demand will stay inside its scope; or investigate a Savings Plan with account-specific usage and recommendations. The public app calculates the first comparison but not the third alternative.
+
+#### 3. The app in use
+
+**Live app:** [RI Commitment Explorer](https://dso576-project-m10-dgvbvbjl9c4y23u6decrwc.streamlit.app/)
+
+The live app was opened with `c6i.large` and 80% expected billable runtime. The page fixes the comparison to `us-east-1`, Linux, shared tenancy and public Standard RI prices.
+
+![Live app with c6i.large and 80 percent runtime](cases/case-priya-savings-plans-vs-ri/screenshots/live-app-c6i-large-80.jpg)
+
+With a one-year maximum commitment and $0 maximum upfront payment, the only eligible RI was one-year No Upfront:
+
+| Measure | Result |
+|---|---:|
+| On-Demand baseline | $595.68 per modeled year |
+| One-year No Upfront Standard RI | $492.57 per modeled year |
+| Modeled savings | $103.11 per modeled year |
+| Break-even runtime | 66.15% |
+
+![One-year and zero-upfront live-app result](cases/case-priya-savings-plans-vs-ri/screenshots/live-app-one-year-zero-upfront.jpg)
+
+The independent `cases/case-priya-savings-plans-vs-ri/verify_priya.py` check uses the price-snapshot rates already documented in Section 3: $0.085 per On-Demand hour and $0.05623 per one-year No Upfront RI hour. It imports no application modules and produces:
+
+```text
+On-Demand annual cost: $595.6800
+RI annual cost:        $492.5748
+Modeled annual saving: $103.1052
+Break-even runtime:    66.1529411765%
+Savings Plan result:   unavailable — no Savings Plan rates or account recommendation are inputs
+```
+
+One row in this calculation is one purchase option for one `c6i.large` instance-equivalent in the fixed public-price scope. The result includes the Standard RI and On-Demand rows for that configuration. It leaves out Compute Savings Plans, EC2 Instance Savings Plans, other instance families and Regions, private prices, credits, existing commitments and the account's real usage history.
+
+#### 4. Reading the result for their decision
+
+The $103.11 is a valid conditional comparison: if this workload is an uncovered `c6i.large` in `us-east-1`, if 80% runtime is a good forecast, if public prices apply, and if Priya is choosing only between this RI and On-Demand, the one-year No Upfront RI costs less in the model. The 66.15% value is the modeled runtime where that RI and On-Demand have equal annual cost.
+
+It is **not** the savings from choosing the best AWS commitment product. Savings Plans are outside the row universe, so the eligible-set minimum is not a minimum across Priya's real alternatives. This is primarily a **kind 2, which rows belong** problem. It also has a proxy limitation: the 80% entry is an editable assumption, not observed or forecast account usage.
+
+Priya could be misled by the green sentence that says the RI is the lowest modeled eligible option. That sentence is correct inside the RI-only filters, but it could be read as approval to buy an RI. A different number could change the decision: an account-specific Savings Plans recommendation may show a flexible commitment that still covers usage after the family or Region changes. The public app cannot calculate that comparison because it has neither Savings Plans rates nor the account history required for the recommendation.
+
+The app itself supports this caution. Its limits say that the scenario excludes actual usage, existing commitments, private discounts and future workload changes, and its next action is to investigate with internal data.
+
+![Live-app assumptions and limits](cases/case-priya-savings-plans-vs-ri/screenshots/live-app-model-limits.jpg)
+
+Priya still needs Engineering's expected family and Region changes; account-specific usage and coverage; private pricing and credits; term and payment constraints; and any capacity-reservation requirement. Those facts determine whether flexibility is worth more than the narrow RI discount.
+
+#### 5. The verdict: prove or break
+
+**Verdict: break for Priya's RI-versus-Savings-Plans decision.** The app proves only that one specific Standard RI is cheaper than public On-Demand pricing in its modeled scope. It does not answer Priya's actual product-choice question, so she should not use it to approve a Standard RI. She may use it to screen the RI side, then obtain the account-specific Savings Plans recommendation and confirm the workload plan with Engineering before deciding.
+
+**Open change request CR-04 (synchronized to `change-requests.md`):** put an RI-only scope statement immediately beside every positive shortlist summary. It should say that the result is the lowest eligible Standard RI in the current public-price model, not the best AWS purchase product. When flexibility across family or Region matters, direct the user to compare an account-specific Savings Plans recommendation and Engineering's future workload plan. The current RI and On-Demand calculations remain unchanged; the app should not estimate Savings Plan savings without the missing rates and account data.
+
+The sources above were accessed November 8, 2026. The committed reproduction command is:
+
+```bash
+python3 cases/case-priya-savings-plans-vs-ri/verify_priya.py
+```
+
 ## 3. Numbers
 
 ### 3.1 Definitions: exactly what each number means
@@ -929,4 +1014,4 @@ The reference case checks the synthetic rates p=$0.20/hour and h=$0.12/hour, so 
 
 The skipped full-source test is a real gap in the reported run, not a passed test. It expects `data/raw/ec2_us-east-1.csv`; without that file it intentionally skips. The app can still run on the processed Parquet, but complete raw-to-processed reconciliation is not established. The separately supplied September archive cannot by itself fill the October snapshot gap.
 
-Five case narratives are integrated. Alex's three case screenshots are included; the originally referenced verification JSON was not supplied. Casey/Maya referenced calculation scripts and evidence logs were not supplied. Their stated arithmetic is reproducible in Section 3.5, but that does not validate the absent files. Anonymous access to the public app and unlisted video was checked on November 8, 2026, but this integration does not authenticate the exact deployed commit. Confirm case authorship and scenario ownership before submission. No actual Riot user research, measured user benefit, full-cost coverage or optimization across all AWS products is claimed.
+Six case narratives are integrated. Alex's three case screenshots are included; the originally referenced verification JSON was not supplied. Casey/Maya referenced calculation scripts and evidence logs were not supplied. Their stated arithmetic is reproducible in Section 3.5, but that does not validate the absent files. Priya's three live-app screenshots and independent check are supplied in the repository. Anonymous access to the public app and unlisted video was checked again on November 9, 2026, but this integration does not authenticate the exact deployed commit. Confirm case authorship and scenario ownership before submission. No actual Riot user research, measured user benefit, full-cost coverage or optimization across all AWS products is claimed.
