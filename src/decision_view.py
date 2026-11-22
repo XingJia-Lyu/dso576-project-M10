@@ -6,6 +6,10 @@ from src.decision import eligible_options, sensitivity_table
 from src.views import usd, percent
 
 
+def _mark_upfront_budget_custom():
+    st.session_state['_max_upfront_custom'] = True
+
+
 def render_decision_support(results, utilization):
     if results.empty:
         return
@@ -14,9 +18,18 @@ def render_decision_support(results, utilization):
     st.caption('For one instance-equivalent. These filters affect the shortlist and chart below; the full comparison above remains available.')
     a, b = st.columns(2)
     max_years = a.selectbox('Maximum acceptable commitment (years)', [1, 3], index=1, key='max_years')
+    instance = results.instance_type.iloc[0]
+    default_budget = float(results.ri_upfront_usd.max())
+    previous_instance = st.session_state.get('_max_upfront_instance')
+    if previous_instance != instance:
+        if not st.session_state.get('_max_upfront_custom', False):
+            st.session_state['max_upfront'] = default_budget
+        st.session_state['_max_upfront_instance'] = instance
+    elif 'max_upfront' not in st.session_state:
+        st.session_state['max_upfront'] = default_budget
     budget = b.number_input('Maximum upfront payment (USD)', min_value=0.0,
-                            value=float(results.ri_upfront_usd.max()), step=100.0,
-                            key='max_upfront')
+                            step=100.0, key='max_upfront',
+                            on_change=_mark_upfront_budget_custom)
     eligible = eligible_options(results, max_years, budget)
     if eligible.empty:
         st.info('No RI options meet both constraints. On-Demand remains a baseline without an RI upfront payment or term commitment. Adjust the constraints to explore more options.')
