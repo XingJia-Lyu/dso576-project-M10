@@ -87,6 +87,41 @@ def test_controls_runtime_and_cache(tmp_path,monkeypatch):
     a.run()
     assert a.error and "prepare_data" in a.error[0].value
 
+def test_upfront_default_follows_machine_but_preserves_custom_budget():
+    import streamlit as st
+    from src.decision_view import render_decision_support
+
+    rows=[]
+    for instance, amounts in [("c6i.large", ["0", "856"]),
+                              ("c6i.32xlarge", ["0", "54782"] )]:
+        for payment, amount, years in [("No Upfront", amounts[0], 1),
+                                       ("All Upfront", amounts[1], 3)]:
+            row=prices(years=years, payment=payment, f=amount).iloc[0].to_dict()
+            row["instance_type"] = instance
+            rows.append(row)
+    table=pd.DataFrame(rows)
+
+    def app(table):
+        import streamlit as st
+        from decimal import Decimal as D
+        from src.scenario import calculate_scenario
+        from src.decision_view import render_decision_support
+        instance=st.selectbox("Instance", ["c6i.large", "c6i.32xlarge"], key="test_instance")
+        render_decision_support(calculate_scenario(table, instance, D(".8")), D(".8"))
+
+    a=AppTest.from_function(app,args=(table,)).run()
+    assert not a.exception
+    assert a.number_input[0].value == 856
+
+    a.selectbox[0].select("c6i.32xlarge").run()
+    assert not a.exception
+    assert a.number_input[0].value == 54782
+
+    a.number_input[0].set_value(500).run()
+    a.selectbox[0].select("c6i.large").run()
+    assert not a.exception
+    assert a.number_input[0].value == 500
+
 def test_real_snapshot_vision_walkthrough():
     from src.load_data import load_price_options
     p=load_price_options(ROOT/"data/processed/c6i_price_options.parquet")
