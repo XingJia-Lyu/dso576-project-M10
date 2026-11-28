@@ -1,0 +1,55 @@
+{
+  "mismatch_count": 0,
+  "comparison_count": 329862,
+  "comparisons_by_section": {
+    "source": 2,
+    "prices": 218,
+    "scenarios": 27270,
+    "sensitivity": 10908,
+    "constraints": 1296,
+    "ui": 20412,
+    "chart": 269748,
+    "coverage": 8
+  },
+  "mismatches": [],
+  "coverage_counts": {
+    "scenarios": 5454,
+    "sensitivity": 5454,
+    "constraints": 648,
+    "ui": 648
+  },
+  "source": {
+    "metadata": {
+      "FormatVersion": "v1.0",
+      "Disclaimer": "This pricing list is for informational purposes only. All prices are subject to the additional terms included in the pricing pages on http://aws.amazon.com. All Free Tier prices are also subject to the terms included at https://aws.amazon.com/free/",
+      "Publication Date": "2026-10-15T19:13:16Z",
+      "Version": "20261015191316",
+      "OfferCode": "AmazonEC2"
+    },
+    "raw_rows": 393649,
+    "raw_columns": 93,
+    "retained_components": 99,
+    "filename": "ec2_us-east-1_20261015191316.csv",
+    "size_bytes": 302869403,
+    "sha256": "b16d15172cfffa5e748df7f57d1d314943470ec0bc538c48493248e73f4d3c57"
+  },
+  "download_receipt": {
+    "version": "20261015191316",
+    "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/20261015191316/us-east-1/index.csv",
+    "filename": "ec2_us-east-1_20261015191316.csv",
+    "downloaded_at_utc": "2026-11-28T02:07:01.035798+00:00",
+    "size_bytes": 302869403,
+    "sha256": "b16d15172cfffa5e748df7f57d1d314943470ec0bc538c48493248e73f4d3c57"
+  },
+  "observed_commit": "066fceff8b4af0ce89f3bb309a9ed997e275fb5c",
+  "observed_file_sha256": "6c36e23322639508f5ef2d0698970d9f139fa78ee5ffcf5f0646d09ab9de9b34",
+  "observed_capture_time": "2026-11-28T02:21:11.080064+00:00",
+  "prepared_price_sha256": "4ab3145b4a84537737370c308f325fbf5e3fc8c821ced0636d62ef00bd58e1a1",
+  "option_count": 54,
+  "limitations": [
+    "101 integer runtimes, not all real-valued inputs",
+    "Declared budget boundaries and UI states, not every interaction",
+    "Local checked-out app; live deployment not authenticated",
+    "Constant-price public-price model; not actual company savings"
+  ]
+}

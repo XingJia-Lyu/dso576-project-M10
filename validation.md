@@ -863,67 +863,101 @@ Let `H = 8,760` modeled hours/year, `Y` be 1 or 3 years, `u` be a finite runtime
 
 `src/scenario.py` calculates financial measures with Decimal precision 28. `src/views.py` formats display values. The stored effective rate is display-only and does not drive the main scenario calculations; source correctness of that stored field must therefore be assessed separately. Showing a value with fewer decimals is presentation, not evidence that the original rate changed.
 
-### 3.2 Data provenance and the snapshot mismatch
+### 3.2 Original-file provenance and record inspection (R5)
 
-The supplied processed report records **54 candidate RI groups, 54 accepted and zero rejected**, across nine C6i instance types. There is one option per instance/term/payment combination: 9 × 2 × 3 = 54. The runtime file is `data/processed/c6i_price_options.parquet`; the app reads it rather than a random sample or a raw CSV at startup. For `c6i.large`, six RI options are shown in the original comparison, and one passes a one-year/$0 constraint (Casey); Jordan's $300 cap instead admits two one-year options.
+The independent reference now reads the full **matching October source**, rather than corroborating October screenshots with September rates. The earlier September scan is historical evidence only. No manually copied rate or displayed annual total is an input to the new check.
 
-The screenshots show app version metadata `20261015191316`, published `2026-10-15T19:13:16Z`. The separate uploaded dataset archive contains an EC2 raw file published `2026-09-04T23:11:17Z`, version `20260904231117`. These are **different snapshots**. A standard-library CSV scan of the September file found the selected product's full-precision rates below; they agree with the October figures visible in the screenshots, but that is not an independent end-to-end validation of the October preparation pipeline.
+- Publisher: Amazon Web Services, EC2 regional Bulk Price List, `us-east-1`.
+- Fixed original URL: https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/20261015191316/us-east-1/index.csv
+- Version: `20261015191316`; publication: `2026-10-15T19:13:16Z`.
+- Actual retrieval: `2026-11-28T02:07:01.035798+00:00`; size: 302,869,403 bytes.
+- Original SHA-256: `b16d15172cfffa5e748df7f57d1d314943470ec0bc538c48493248e73f4d3c57`.
+- Original population: 393,649 data records, 93 columns. The reference independently selected 99 comparable rate components and reconstructed 54 options, across nine C6i types, two terms and three payment options.
+- App observations: local base commit `066fceff8b4af0ce89f3bb309a9ed997e275fb5c`; prepared Parquet SHA-256 `4ab3145b4a84537737370c308f325fbf5e3fc8c821ced0636d62ef00bd58e1a1`. The collector also records source-file hashes. This does not establish the deployed commit.
 
-The independent raw selection held the configuration fixed: Compute Instance, `us-east-1`, Linux, Shared, Used capacity, no preinstalled software, no license requirement, OnDemand market field, `c6i.large`, and Standard RI or On-Demand term type. The identified SKU was `G34GXEYC28NK97K3`. On-Demand term `JRTCKXETXF` is $0.0850000000/hour; one-year No Upfront term `4NA7Y494T4` is $0.0562300000/hour. Upfront and hourly components of the other RI terms were read separately. No random sample was used for this check.
+The scope is Compute Instance; `us-east-1`; Linux; Shared; Used capacity; pre-installed S/W `NA`; No License required; OnDemand market; non-bare-metal `c6i.*`; On-Demand or Standard RI only. Hrs components require range 0 to Inf; upfront Quantity components have blank ranges. Ambiguous, missing or unsupported in-scope components stop the independent check.
 
-### 3.3 Independent arithmetic and results
+**Inspection behind the opening comparison.** The app opens with no instance selected, so its first comparison requires a selection. For the recorded `c6i.large`, 80% walkthrough (Jordan and the reference captures), all source records use product SKU `G34GXEYC28NK97K3`. The matching original rows are:
 
-The following reference uses scalar Decimal arithmetic without importing the app's calculation function or pandas. Its rates were separately read from the supplied September raw file; online comparison values are taken from the supplied October-snapshot screenshots. This checks the displayed cost relationships and rounding at those inputs, rather than authenticating the complete October source.
+| Term / payment | OfferTermCode | Unit | Original PricePerUnit (USD) |
+|---|---|---|---|
+| On-Demand | `JRTCKXETXF` | Hrs | 0.0850000000 |
+| 1yr All Upfront | `6QCMYABX3D` | Hrs | 0.0000000000 |
+| 1yr All Upfront | `6QCMYABX3D` | Quantity | 460 |
+| 1yr No Upfront | `4NA7Y494T4` | Hrs | 0.0562300000 |
+| 1yr Partial Upfront | `HU7G6KETJZ` | Hrs | 0.0267800000 |
+| 1yr Partial Upfront | `HU7G6KETJZ` | Quantity | 235 |
+| 3yr All Upfront | `NQ3QZPMQV9` | Hrs | 0.0000000000 |
+| 3yr All Upfront | `NQ3QZPMQV9` | Quantity | 856 |
+| 3yr No Upfront | `BPH4J8HBKS` | Hrs | 0.0374200000 |
+| 3yr Partial Upfront | `38NPMPTW36` | Hrs | 0.0173200000 |
+| 3yr Partial Upfront | `38NPMPTW36` | Quantity | 455 |
 
-```python
-from decimal import Decimal as D
+Each row is a price component, not a complete purchase plan. The reference pairs RI components by **SKU + OfferTermCode** and matches On-Demand by that product SKU. For example, the one-year Partial Upfront group contains both $235 Quantity and $0.02678/hour; the No Upfront group has its hourly component and no Quantity component. Missing Partial/All Upfront charges are rejected, not filled with zero.
 
-hours, od_rate = D('8760'), D('0.085')
-options = [
-    (1, 'No Upfront', '0', '0.05623'),
-    (1, 'Partial Upfront', '235', '0.02678'),
-    (1, 'All Upfront', '460', '0'),
-    (3, 'No Upfront', '0', '0.03742'),
-    (3, 'Partial Upfront', '455', '0.01732'),
-    (3, 'All Upfront', '856', '0'),
-]
-for years, payment, upfront, hourly in options:
-    total = D(upfront) + D(hourly) * hours * years
-    annual = total / years
-    od = od_rate * hours * D('0.8')
-    break_even = annual / (od_rate * hours)
-    print(years, payment, f'RI={annual:.2f}',
-          f'savings={od-annual:.2f}', f'break-even={break_even:.2%}')
-```
+The Hrs RateCode is `SKU.OfferTermCode.6YS6EN2CT7`; Quantity is `SKU.OfferTermCode.2TG2D8R56U`. For the No Upfront example, the RI and On-Demand data-record numbers are 177600 and 177609 respectively (one-based, excluding metadata/header). `checks/r5-results/original_options.json` preserves the exact keys, RateCodes and record numbers for **all** options. `original-records.csv` preserves all fields of the 99 inspected original rows and is regenerated directly from the full CSV; it is not the input to verification.
 
-Executed reference output at 80%:
+### 3.3 Independent reconstruction, rerun command and results
+
+`checks/check_original_prices.py` uses only the Python standard library. It reconstructs rates and computes reference results using exact rational arithmetic from original decimal strings, before opening the observation file. It imports none of the app's code. `checks/capture_app_results.py` separately records the app's actual values using its functions and local Streamlit AppTest; those observations are compared **afterwards**, never used as expected prices.
+
+From the repository root, run one command per line (Python 3.11+ and uv):
 
 ```text
-1 No Upfront RI=492.57 savings=103.11 break-even=66.15%
-1 Partial Upfront RI=469.59 savings=126.09 break-even=63.07%
-1 All Upfront RI=460.00 savings=135.68 break-even=61.78%
-3 No Upfront RI=327.80 savings=267.88 break-even=44.02%
-3 Partial Upfront RI=303.39 savings=292.29 break-even=40.75%
-3 All Upfront RI=285.33 savings=310.35 break-even=38.32%
+uv sync --frozen
+uv run python checks/check_original_prices.py --download --download-only --source-version 20261015191316 --raw data/raw/ec2_us-east-1_20261015191316.csv
+uv run python checks/capture_app_results.py
+uv run python checks/check_original_prices.py --source-version 20261015191316 --raw data/raw/ec2_us-east-1_20261015191316.csv --observed checks/r5-observed.json.gz
+uv run python -m pytest tests/test_original_price_audit.py -q
 ```
 
-| Check | Independent result | Supplied online observation | Assessment |
-|---|---|---|---|
-| On-Demand, c6i.large, 80% | $595.68/year | $595.68 | Agrees to displayed cents |
-| One-year No Upfront, 80% | $492.57/year; $103.11 savings; 66.15% break-even | Archived c6i.large 80% capture (linked below) | Agrees |
-| Other one-year options, 80% | Partial $469.59/$126.09/63.07%; All $460.00/$135.68/61.78% | Previously supplied online one-year comparison; not reproduced here | Agrees |
-| Three-year options, 80% | No $327.80/$267.88/44.02%; Partial $303.39/$292.29/40.75%; All $285.33/$310.35/38.32% | Additional supplied online three-year screenshot | Agrees; screenshot retained with this draft's evidence |
-| On-Demand, 50% | $372.30/year | Archived c6i.large 50% capture (linked below) | Agrees |
-| One-year No Upfront, 50% | $492.57/year; -$120.27 savings | Archived c6i.large 50% captures | Agrees; same break-even threshold |
-| One-year/$0 eligibility | One option: No Upfront | Archived constraint captures | Agrees at both runtime settings |
+The pinned public download requires no AWS credentials and stays in gitignored `data/raw/`. Its adjacent receipt records real retrieval time and hash; an existing file is not overwritten. Full reproducibility instructions, including later price versions, are in `checks/README.md`.
 
-At 80%, the No Upfront one-year values before display rounding are RI cost $492.57480 and savings $103.10520. At 50%, savings are -$120.27480. The full-precision threshold is 66.15294117647...%. Displaying it as 66.15% is rounding, not an exact equality at that entered percentage. For three-year All Upfront, $856/3 = $285.3333... per year; the full obligation is still $856 over three modeled years.
+**Executed original-source comparison:**
 
-**Resolved rounding difference:** the rate shown as $0.0562/hour is a compact display of $0.05623. Recomputing 8,760 × 0.0562 gives $492.312, while the full rate gives $492.57480. The apparent $0.26 annual difference is explained by rounding the input too early; the app's displayed annual result matches full-precision arithmetic. Similarly, sum or difference checks should use unrounded values and round once at display time.
+```text
+Source version: 20261015191316; 393,649 original rows
+Options independently reconstructed: 54
+Recorded checks: 329862; mismatches: 0
+Coverage: {"constraints": 648, "scenarios": 5454, "sensitivity": 5454, "ui": 648}
+PASS
+```
 
-### 3.4 What this does and does not validate
+| Result type | Observed coverage | Independent check |
+|---|---|---|
+| Source prices | All 54 options; 162 On-Demand/upfront/RI inputs plus 54 effective rates | Read and pair original CSV components, reconcile the exact option set and snapshot |
+| Costs, savings, threshold and status | 5,454 option-runtime rows: every option at each integer 0-100% runtime | Compute from full obligation `F + h × 8760 × Y`, then annualize and compare |
+| Constraint-qualified shortlist | 648 selections across all types, both maximum terms and source-derived upfront boundaries | Exact eligible set; include equality and exclude one cent below each positive upfront boundary |
+| Sensitivity helper | 5,454 option-runtime rows | Both cost series compared against original-source formulas |
+| Displayed tables and per-term lowest eligible cost | 648 local states: each type at 0/50/80/100%, maximum term 1 or 3, and all declared upfront boundaries explicitly set | Exact displayed dollar strings/status, shortlist keys, cheapest payment options and conditional message amounts |
+| Actual serialized chart | Those same 648 states, including line grids, threshold dots and entered-runtime markers | Check actual emitted datasets and x/y fields, not merely that a chart exists |
 
-The checks support the cost formulas, their units, six selected payment/term outputs, eligibility and the reversal at the two case assumptions. They do not validate every one of the 54 prices against the October raw data, negotiated marginal costs, actual savings or a forecast. The September raw corroboration must not be relabeled as October source reconciliation. The optional full-snapshot integration test was skipped in the reported run, as explained in Section 4. A complete October source reconstruction would require the matching raw snapshot and successful reconciliation without replacing it with September data.
+**Readable side-by-side examples.** These displayed values are local AppTest observations collected from the actual app, with expectations independently derived from the October source. Archived live captures below provide separate visual context; they do not authenticate the current live commit.
+
+| Selection | Independent source result | Captured app result |
+|---|---|---|
+| c6i.large, 1yr No Upfront, 80% | RI $492.57/year; OD $595.68; savings $103.11 | Same displayed amounts; RI lower modeled cost |
+| c6i.large, 1yr Partial Upfront, 80% | RI $469.59; savings $126.09 | Same |
+| c6i.large, 1yr All Upfront, 80% | RI $460.00; savings $135.68 | Same |
+| c6i.large, 3yr No Upfront, 80% | RI $327.80; savings $267.88 | Same |
+| c6i.large, 3yr Partial Upfront, 80% | RI $303.39; savings $292.29 | Same |
+| c6i.large, 3yr All Upfront, 80% | RI $285.33; savings $310.35 | Same |
+| c6i.16xlarge, 1yr No Upfront, 80% | RI $15,761.69; OD $19,061.76; savings $3,300.07; break-even 66.15% | Same; RI lower modeled cost |
+| c6i.16xlarge, same option, 50% | OD $11,913.60; savings -$3,848.09; break-even unchanged | Same; On-Demand lower modeled cost |
+| c6i.large, max term 1yr, upfront cap $300 | No Upfront and Partial Upfront eligible | Exact set agrees |
+| c6i.large, max term 1yr, cap $460 | All three eligible; All Upfront has lowest RI cost | Exact set agrees |
+
+The 329,862 checks include numeric comparisons, exact membership/uniqueness, source identity and coverage assertions; values repeat across states, and the declared selections are counted separately above. Complete field-level expected/observed results are in `checks/r5-results/comparisons.csv.gz`; source identity, counts and mismatches are in `summary.json`. Source option count and budget boundaries are derived each run rather than hard-coded as acceptance values.
+
+**Precision:** Financial comparisons allow absolute 1e-20 units (effective rate 1e-24) for finite 28-digit app division; exact status and option sets must agree. Displayed dollar strings match exactly. Chart floats allow 1e-8 USD or percentage points, far below a displayed cent. A stored effective rate is checked separately against source components.
+
+At 80%, c6i.large one-year No Upfront has unrounded RI annual cost $492.57480 and savings $103.10520. Its threshold is 66.15294117647...%, so 66.15% is a rounded display. Recalculating from the compact displayed $0.0562/hour instead of the original $0.05623 creates a $0.26 apparent annual difference. The checker uses full original rates and rounds once for display. Three-year All Upfront remains a $856 full obligation even though its annualized cost is $285.33.
+
+### 3.4 What this validates and its limits
+
+The check now covers every current option's prices and the main local cost, savings, threshold, constraint and sensitivity outputs on the declared matrix. Wrong observed prices, savings, source versions, missing/duplicate options, chart dots/lines/markers and decision messages are rejected by hand-checkable verifier tests. This closes R5's missing original-file scan and rerun evidence gap without claiming a previously wrong price.
+
+It does **not** prove every browser interaction, the live deployment's identity, future prices, actual company savings or negotiated marginal costs. UI evidence covers 648 stated local states, while constraint boundaries and all integer runtimes are checked in code. The constant-price model still excludes real account usage, existing commitments and private discounts. A new main result such as a planning-horizon model must be added to this audit when introduced. The old optional preparation test still skips if its particular unversioned source filename is absent; the separate R5 checker above explicitly reads the complete matching versioned original instead.
 
 ### 3.5 Cross-case arithmetic and evidence limits
 
@@ -975,7 +1009,7 @@ The contributor supplied a terminal screenshot from macOS with Python 3.13.9 and
 uv run python -m pytest -rs
 ```
 
-The latest reported result was:
+The historical MVP contributor result was:
 
 ```text
 collected 69 items
@@ -988,6 +1022,18 @@ This is an observed contributor-run result for that local checkout, not a claim 
 
 ![Contributor test run: 68 passed, one skipped, with skip reason](screenshots/reference/tests-68-passed.png)
 
+**R5 verification run (November 27, 2026):** The checked-out team environment (Python 3.14.7, frozen uv dependencies) was also run directly with `uv run --frozen --no-sync python -m pytest -rs -q`:
+
+```text
+........................................................................ [ 79%]
+s..................                                                      [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_preparation_integration.py:14: Full raw snapshot is optional for runtime-only checkout
+90 passed, 1 skipped in 2.34s
+```
+
+This includes 22 new verifier test cases in `tests/test_original_price_audit.py`. They use invented, hand-checkable original-format rows and deliberately wrong observations to ensure the checker detects discrepancies. The independent full October original-file run in Section 3 is additional real-data evidence, not one of these small-fixture tests. An initial cold baseline hit the existing three-second Streamlit AppTest timeout (`1 failed, 67 passed, 1 skipped in 37.09s`); no existing test was edited. The subsequent full suite passed as reported. The skipped test and filename condition remain disclosed below.
+
 ### 4.2 Properties protected by the suite
 
 | Area and file | What the tests check | Why it matters |
@@ -998,6 +1044,7 @@ This is an observed contributor-run result for that local checkout, not a claim 
 | View and app interaction, `tests/test_interface.py` | Formatting, source labels, invalid/empty handoffs, controls, cached data refresh, real processed snapshot walkthrough and error state | Checks that displayed figures and interactions reflect the chosen scenario rather than only testing formulas in isolation |
 | Additional uploaded tests, `tests/test_my_additions.py` | Selected instance isolation, unchanged input data, and expected runtime/cost relationships across the processed snapshot | Guards against contamination between instance choices and verifies general relationships on actual runtime data |
 | New decision support, `tests/test_decision.py` | Inclusive budget boundaries, term filtering, no eligible RI, invalid budgets, independent sensitivity reference and chart-data agreement, plus UI constraint/chart interactions | Protects the new decision filters and the user's path from settings to results |
+| R5 independent verifier, `tests/test_original_price_audit.py` | Original component pairing, explicit malformed-source failures, wrong numeric/status/version/key observations, incomplete coverage, and altered chart or decision outputs; no app imports in the reference | Ensures the standalone checker can reject incorrect evidence rather than merely echo app values |
 | Optional full-source integration, `tests/test_preparation_integration.py` | Independent raw-scope reconciliation, RI component counts and agreement with the committed processed table | Would test source-to-handoff preparation on the full raw snapshot; not executed in the reported checkout |
 
 These properties have practical limits. Automated assertions cover specified fixtures and paths; they do not prove the absence of every defect. An internal chart-element check establishes that the app emits a chart in the tested environment, not that every browser renders it legibly. The supplied online screenshots provide a separate visual check for the displayed case states.
@@ -1012,6 +1059,6 @@ The reference case checks the synthetic rates p=$0.20/hour and h=$0.12/hour, so 
 
 ### 4.4 Remaining verification boundaries
 
-The skipped full-source test is a real gap in the reported run, not a passed test. It expects `data/raw/ec2_us-east-1.csv`; without that file it intentionally skips. The app can still run on the processed Parquet, but complete raw-to-processed reconciliation is not established. The separately supplied September archive cannot by itself fill the October snapshot gap.
+The skipped full-source test is a real gap in the reported run, not a passed test. It expects `data/raw/ec2_us-east-1.csv`; without that file it intentionally skips. That legacy test remains skipped in this run. The separate R5 original-file audit in Section 3 now reconstructs all 54 options from the matching October file and compares all published price inputs and main scenario outputs; the old September corroboration is not used as its source. This distinction does not relabel the skipped test as passed.
 
 Six case narratives are integrated. Alex's three case screenshots are included; the originally referenced verification JSON was not supplied. Casey/Maya referenced calculation scripts and evidence logs were not supplied. Their stated arithmetic is reproducible in Section 3.5, but that does not validate the absent files. Priya's three live-app screenshots and independent check are supplied in the repository. Anonymous access to the public app and unlisted video was checked again on November 9, 2026, but this integration does not authenticate the exact deployed commit. Confirm case authorship and scenario ownership before submission. No actual Riot user research, measured user benefit, full-cost coverage or optimization across all AWS products is claimed.

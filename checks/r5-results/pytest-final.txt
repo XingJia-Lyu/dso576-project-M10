@@ -1,0 +1,5 @@
+........................................................................ [ 79%]
+s..................                                                      [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_preparation_integration.py:14: Full raw snapshot is optional for runtime-only checkout
+90 passed, 1 skipped in 2.34s

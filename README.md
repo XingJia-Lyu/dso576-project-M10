@@ -84,3 +84,7 @@ Run with `uv run streamlit run dashboard.py`. Alternatively install
 The processed price snapshot is included. No AWS credentials are needed.
 
 See `ENHANCEMENTS.md` for changes, validation scope, and verification status.
+
+## Independent original-source verification (R5)
+
+See [checks/README.md](checks/README.md) for the publisher's pinned raw-file URL, download receipt, rerun commands and recorded results. The standalone reference reconstructs all 54 options from the matching October CSV before comparing the app's prices, scenario results, constraint selections and sensitivity chart. The raw download is gitignored; the checker, observation collector and compact evidence reports are included. Validation Section 3 describes the source records and the comparison limits.

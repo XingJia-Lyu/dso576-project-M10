@@ -1,0 +1,1100 @@
+[
+  {
+    "instance_type": "c6i.12xlarge",
+    "term_years": 1,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "2.04",
+    "ri_upfront_usd": "11033",
+    "ri_hourly_usd": "0",
+    "years": 1,
+    "sku": "3HSUEFTMXM6KT6VA",
+    "offer_term_code": "6QCMYABX3D",
+    "rate_codes": [
+      "3HSUEFTMXM6KT6VA.JRTCKXETXF.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.6QCMYABX3D.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.6QCMYABX3D.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      19298,
+      19290,
+      19291
+    ]
+  },
+  {
+    "instance_type": "c6i.12xlarge",
+    "term_years": 1,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "2.04",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "1.34946",
+    "years": 1,
+    "sku": "3HSUEFTMXM6KT6VA",
+    "offer_term_code": "4NA7Y494T4",
+    "rate_codes": [
+      "3HSUEFTMXM6KT6VA.JRTCKXETXF.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.4NA7Y494T4.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      19298,
+      19289
+    ]
+  },
+  {
+    "instance_type": "c6i.12xlarge",
+    "term_years": 1,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "2.04",
+    "ri_upfront_usd": "5629",
+    "ri_hourly_usd": "0.6426",
+    "years": 1,
+    "sku": "3HSUEFTMXM6KT6VA",
+    "offer_term_code": "HU7G6KETJZ",
+    "rate_codes": [
+      "3HSUEFTMXM6KT6VA.JRTCKXETXF.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.HU7G6KETJZ.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.HU7G6KETJZ.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      19298,
+      19296,
+      19297
+    ]
+  },
+  {
+    "instance_type": "c6i.12xlarge",
+    "term_years": 3,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "2.04",
+    "ri_upfront_usd": "20543",
+    "ri_hourly_usd": "0",
+    "years": 3,
+    "sku": "3HSUEFTMXM6KT6VA",
+    "offer_term_code": "NQ3QZPMQV9",
+    "rate_codes": [
+      "3HSUEFTMXM6KT6VA.JRTCKXETXF.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.NQ3QZPMQV9.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.NQ3QZPMQV9.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      19298,
+      19301,
+      19302
+    ]
+  },
+  {
+    "instance_type": "c6i.12xlarge",
+    "term_years": 3,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "2.04",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.89813",
+    "years": 3,
+    "sku": "3HSUEFTMXM6KT6VA",
+    "offer_term_code": "BPH4J8HBKS",
+    "rate_codes": [
+      "3HSUEFTMXM6KT6VA.JRTCKXETXF.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.BPH4J8HBKS.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      19298,
+      19293
+    ]
+  },
+  {
+    "instance_type": "c6i.12xlarge",
+    "term_years": 3,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "2.04",
+    "ri_upfront_usd": "10927",
+    "ri_hourly_usd": "0.4158",
+    "years": 3,
+    "sku": "3HSUEFTMXM6KT6VA",
+    "offer_term_code": "38NPMPTW36",
+    "rate_codes": [
+      "3HSUEFTMXM6KT6VA.JRTCKXETXF.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.38NPMPTW36.6YS6EN2CT7",
+      "3HSUEFTMXM6KT6VA.38NPMPTW36.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      19298,
+      19287,
+      19288
+    ]
+  },
+  {
+    "instance_type": "c6i.16xlarge",
+    "term_years": 1,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "2.72",
+    "ri_upfront_usd": "14711",
+    "ri_hourly_usd": "0",
+    "years": 1,
+    "sku": "AHVT86XYMA6ADYZE",
+    "offer_term_code": "6QCMYABX3D",
+    "rate_codes": [
+      "AHVT86XYMA6ADYZE.JRTCKXETXF.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.6QCMYABX3D.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.6QCMYABX3D.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      108879,
+      108871,
+      108872
+    ]
+  },
+  {
+    "instance_type": "c6i.16xlarge",
+    "term_years": 1,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "2.72",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "1.79928",
+    "years": 1,
+    "sku": "AHVT86XYMA6ADYZE",
+    "offer_term_code": "4NA7Y494T4",
+    "rate_codes": [
+      "AHVT86XYMA6ADYZE.JRTCKXETXF.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.4NA7Y494T4.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      108879,
+      108870
+    ]
+  },
+  {
+    "instance_type": "c6i.16xlarge",
+    "term_years": 1,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "2.72",
+    "ri_upfront_usd": "7506",
+    "ri_hourly_usd": "0.8568",
+    "years": 1,
+    "sku": "AHVT86XYMA6ADYZE",
+    "offer_term_code": "HU7G6KETJZ",
+    "rate_codes": [
+      "AHVT86XYMA6ADYZE.JRTCKXETXF.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.HU7G6KETJZ.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.HU7G6KETJZ.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      108879,
+      108877,
+      108878
+    ]
+  },
+  {
+    "instance_type": "c6i.16xlarge",
+    "term_years": 3,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "2.72",
+    "ri_upfront_usd": "27391",
+    "ri_hourly_usd": "0",
+    "years": 3,
+    "sku": "AHVT86XYMA6ADYZE",
+    "offer_term_code": "NQ3QZPMQV9",
+    "rate_codes": [
+      "AHVT86XYMA6ADYZE.JRTCKXETXF.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.NQ3QZPMQV9.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.NQ3QZPMQV9.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      108879,
+      108882,
+      108883
+    ]
+  },
+  {
+    "instance_type": "c6i.16xlarge",
+    "term_years": 3,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "2.72",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "1.1975",
+    "years": 3,
+    "sku": "AHVT86XYMA6ADYZE",
+    "offer_term_code": "BPH4J8HBKS",
+    "rate_codes": [
+      "AHVT86XYMA6ADYZE.JRTCKXETXF.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.BPH4J8HBKS.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      108879,
+      108874
+    ]
+  },
+  {
+    "instance_type": "c6i.16xlarge",
+    "term_years": 3,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "2.72",
+    "ri_upfront_usd": "14570",
+    "ri_hourly_usd": "0.5544",
+    "years": 3,
+    "sku": "AHVT86XYMA6ADYZE",
+    "offer_term_code": "38NPMPTW36",
+    "rate_codes": [
+      "AHVT86XYMA6ADYZE.JRTCKXETXF.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.38NPMPTW36.6YS6EN2CT7",
+      "AHVT86XYMA6ADYZE.38NPMPTW36.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      108879,
+      108868,
+      108869
+    ]
+  },
+  {
+    "instance_type": "c6i.24xlarge",
+    "term_years": 1,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "4.08",
+    "ri_upfront_usd": "22066",
+    "ri_hourly_usd": "0",
+    "years": 1,
+    "sku": "72K6VNKKNUPYQ96E",
+    "offer_term_code": "6QCMYABX3D",
+    "rate_codes": [
+      "72K6VNKKNUPYQ96E.JRTCKXETXF.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.6QCMYABX3D.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.6QCMYABX3D.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      65034,
+      65026,
+      65027
+    ]
+  },
+  {
+    "instance_type": "c6i.24xlarge",
+    "term_years": 1,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "4.08",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "2.69892",
+    "years": 1,
+    "sku": "72K6VNKKNUPYQ96E",
+    "offer_term_code": "4NA7Y494T4",
+    "rate_codes": [
+      "72K6VNKKNUPYQ96E.JRTCKXETXF.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.4NA7Y494T4.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      65034,
+      65025
+    ]
+  },
+  {
+    "instance_type": "c6i.24xlarge",
+    "term_years": 1,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "4.08",
+    "ri_upfront_usd": "11258",
+    "ri_hourly_usd": "1.2852",
+    "years": 1,
+    "sku": "72K6VNKKNUPYQ96E",
+    "offer_term_code": "HU7G6KETJZ",
+    "rate_codes": [
+      "72K6VNKKNUPYQ96E.JRTCKXETXF.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.HU7G6KETJZ.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.HU7G6KETJZ.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      65034,
+      65032,
+      65033
+    ]
+  },
+  {
+    "instance_type": "c6i.24xlarge",
+    "term_years": 3,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "4.08",
+    "ri_upfront_usd": "41086",
+    "ri_hourly_usd": "0",
+    "years": 3,
+    "sku": "72K6VNKKNUPYQ96E",
+    "offer_term_code": "NQ3QZPMQV9",
+    "rate_codes": [
+      "72K6VNKKNUPYQ96E.JRTCKXETXF.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.NQ3QZPMQV9.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.NQ3QZPMQV9.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      65034,
+      65037,
+      65038
+    ]
+  },
+  {
+    "instance_type": "c6i.24xlarge",
+    "term_years": 3,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "4.08",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "1.79626",
+    "years": 3,
+    "sku": "72K6VNKKNUPYQ96E",
+    "offer_term_code": "BPH4J8HBKS",
+    "rate_codes": [
+      "72K6VNKKNUPYQ96E.JRTCKXETXF.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.BPH4J8HBKS.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      65034,
+      65029
+    ]
+  },
+  {
+    "instance_type": "c6i.24xlarge",
+    "term_years": 3,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "4.08",
+    "ri_upfront_usd": "21854",
+    "ri_hourly_usd": "0.8316",
+    "years": 3,
+    "sku": "72K6VNKKNUPYQ96E",
+    "offer_term_code": "38NPMPTW36",
+    "rate_codes": [
+      "72K6VNKKNUPYQ96E.JRTCKXETXF.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.38NPMPTW36.6YS6EN2CT7",
+      "72K6VNKKNUPYQ96E.38NPMPTW36.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      65034,
+      65023,
+      65024
+    ]
+  },
+  {
+    "instance_type": "c6i.2xlarge",
+    "term_years": 1,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "0.34",
+    "ri_upfront_usd": "1839",
+    "ri_hourly_usd": "0",
+    "years": 1,
+    "sku": "TRNMR2KK2A9257AV",
+    "offer_term_code": "6QCMYABX3D",
+    "rate_codes": [
+      "TRNMR2KK2A9257AV.JRTCKXETXF.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.6QCMYABX3D.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.6QCMYABX3D.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      314777,
+      314769,
+      314770
+    ]
+  },
+  {
+    "instance_type": "c6i.2xlarge",
+    "term_years": 1,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "0.34",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.22491",
+    "years": 1,
+    "sku": "TRNMR2KK2A9257AV",
+    "offer_term_code": "4NA7Y494T4",
+    "rate_codes": [
+      "TRNMR2KK2A9257AV.JRTCKXETXF.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.4NA7Y494T4.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      314777,
+      314768
+    ]
+  },
+  {
+    "instance_type": "c6i.2xlarge",
+    "term_years": 1,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "0.34",
+    "ri_upfront_usd": "938",
+    "ri_hourly_usd": "0.1071",
+    "years": 1,
+    "sku": "TRNMR2KK2A9257AV",
+    "offer_term_code": "HU7G6KETJZ",
+    "rate_codes": [
+      "TRNMR2KK2A9257AV.JRTCKXETXF.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.HU7G6KETJZ.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.HU7G6KETJZ.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      314777,
+      314775,
+      314776
+    ]
+  },
+  {
+    "instance_type": "c6i.2xlarge",
+    "term_years": 3,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "0.34",
+    "ri_upfront_usd": "3424",
+    "ri_hourly_usd": "0",
+    "years": 3,
+    "sku": "TRNMR2KK2A9257AV",
+    "offer_term_code": "NQ3QZPMQV9",
+    "rate_codes": [
+      "TRNMR2KK2A9257AV.JRTCKXETXF.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.NQ3QZPMQV9.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.NQ3QZPMQV9.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      314777,
+      314780,
+      314781
+    ]
+  },
+  {
+    "instance_type": "c6i.2xlarge",
+    "term_years": 3,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "0.34",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.14969",
+    "years": 3,
+    "sku": "TRNMR2KK2A9257AV",
+    "offer_term_code": "BPH4J8HBKS",
+    "rate_codes": [
+      "TRNMR2KK2A9257AV.JRTCKXETXF.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.BPH4J8HBKS.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      314777,
+      314772
+    ]
+  },
+  {
+    "instance_type": "c6i.2xlarge",
+    "term_years": 3,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "0.34",
+    "ri_upfront_usd": "1821",
+    "ri_hourly_usd": "0.0693",
+    "years": 3,
+    "sku": "TRNMR2KK2A9257AV",
+    "offer_term_code": "38NPMPTW36",
+    "rate_codes": [
+      "TRNMR2KK2A9257AV.JRTCKXETXF.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.38NPMPTW36.6YS6EN2CT7",
+      "TRNMR2KK2A9257AV.38NPMPTW36.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      314777,
+      314766,
+      314767
+    ]
+  },
+  {
+    "instance_type": "c6i.32xlarge",
+    "term_years": 1,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "5.44",
+    "ri_upfront_usd": "29422",
+    "ri_hourly_usd": "0",
+    "years": 1,
+    "sku": "WES4FF4FTRGSBS7W",
+    "offer_term_code": "6QCMYABX3D",
+    "rate_codes": [
+      "WES4FF4FTRGSBS7W.JRTCKXETXF.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.6QCMYABX3D.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.6QCMYABX3D.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      348521,
+      348513,
+      348514
+    ]
+  },
+  {
+    "instance_type": "c6i.32xlarge",
+    "term_years": 1,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "5.44",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "3.59856",
+    "years": 1,
+    "sku": "WES4FF4FTRGSBS7W",
+    "offer_term_code": "4NA7Y494T4",
+    "rate_codes": [
+      "WES4FF4FTRGSBS7W.JRTCKXETXF.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.4NA7Y494T4.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      348521,
+      348512
+    ]
+  },
+  {
+    "instance_type": "c6i.32xlarge",
+    "term_years": 1,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "5.44",
+    "ri_upfront_usd": "15011",
+    "ri_hourly_usd": "1.7136",
+    "years": 1,
+    "sku": "WES4FF4FTRGSBS7W",
+    "offer_term_code": "HU7G6KETJZ",
+    "rate_codes": [
+      "WES4FF4FTRGSBS7W.JRTCKXETXF.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.HU7G6KETJZ.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.HU7G6KETJZ.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      348521,
+      348519,
+      348520
+    ]
+  },
+  {
+    "instance_type": "c6i.32xlarge",
+    "term_years": 3,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "5.44",
+    "ri_upfront_usd": "54782",
+    "ri_hourly_usd": "0",
+    "years": 3,
+    "sku": "WES4FF4FTRGSBS7W",
+    "offer_term_code": "NQ3QZPMQV9",
+    "rate_codes": [
+      "WES4FF4FTRGSBS7W.JRTCKXETXF.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.NQ3QZPMQV9.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.NQ3QZPMQV9.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      348521,
+      348524,
+      348525
+    ]
+  },
+  {
+    "instance_type": "c6i.32xlarge",
+    "term_years": 3,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "5.44",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "2.39501",
+    "years": 3,
+    "sku": "WES4FF4FTRGSBS7W",
+    "offer_term_code": "BPH4J8HBKS",
+    "rate_codes": [
+      "WES4FF4FTRGSBS7W.JRTCKXETXF.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.BPH4J8HBKS.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      348521,
+      348516
+    ]
+  },
+  {
+    "instance_type": "c6i.32xlarge",
+    "term_years": 3,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "5.44",
+    "ri_upfront_usd": "29139",
+    "ri_hourly_usd": "1.1088",
+    "years": 3,
+    "sku": "WES4FF4FTRGSBS7W",
+    "offer_term_code": "38NPMPTW36",
+    "rate_codes": [
+      "WES4FF4FTRGSBS7W.JRTCKXETXF.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.38NPMPTW36.6YS6EN2CT7",
+      "WES4FF4FTRGSBS7W.38NPMPTW36.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      348521,
+      348510,
+      348511
+    ]
+  },
+  {
+    "instance_type": "c6i.4xlarge",
+    "term_years": 1,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "0.68",
+    "ri_upfront_usd": "3678",
+    "ri_hourly_usd": "0",
+    "years": 1,
+    "sku": "E8ZFW5VX39K37SVF",
+    "offer_term_code": "6QCMYABX3D",
+    "rate_codes": [
+      "E8ZFW5VX39K37SVF.JRTCKXETXF.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.6QCMYABX3D.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.6QCMYABX3D.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      154703,
+      154695,
+      154696
+    ]
+  },
+  {
+    "instance_type": "c6i.4xlarge",
+    "term_years": 1,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "0.68",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.44982",
+    "years": 1,
+    "sku": "E8ZFW5VX39K37SVF",
+    "offer_term_code": "4NA7Y494T4",
+    "rate_codes": [
+      "E8ZFW5VX39K37SVF.JRTCKXETXF.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.4NA7Y494T4.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      154703,
+      154694
+    ]
+  },
+  {
+    "instance_type": "c6i.4xlarge",
+    "term_years": 1,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "0.68",
+    "ri_upfront_usd": "1876",
+    "ri_hourly_usd": "0.2142",
+    "years": 1,
+    "sku": "E8ZFW5VX39K37SVF",
+    "offer_term_code": "HU7G6KETJZ",
+    "rate_codes": [
+      "E8ZFW5VX39K37SVF.JRTCKXETXF.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.HU7G6KETJZ.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.HU7G6KETJZ.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      154703,
+      154701,
+      154702
+    ]
+  },
+  {
+    "instance_type": "c6i.4xlarge",
+    "term_years": 3,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "0.68",
+    "ri_upfront_usd": "6848",
+    "ri_hourly_usd": "0",
+    "years": 3,
+    "sku": "E8ZFW5VX39K37SVF",
+    "offer_term_code": "NQ3QZPMQV9",
+    "rate_codes": [
+      "E8ZFW5VX39K37SVF.JRTCKXETXF.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.NQ3QZPMQV9.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.NQ3QZPMQV9.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      154703,
+      154706,
+      154707
+    ]
+  },
+  {
+    "instance_type": "c6i.4xlarge",
+    "term_years": 3,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "0.68",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.29938",
+    "years": 3,
+    "sku": "E8ZFW5VX39K37SVF",
+    "offer_term_code": "BPH4J8HBKS",
+    "rate_codes": [
+      "E8ZFW5VX39K37SVF.JRTCKXETXF.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.BPH4J8HBKS.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      154703,
+      154698
+    ]
+  },
+  {
+    "instance_type": "c6i.4xlarge",
+    "term_years": 3,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "0.68",
+    "ri_upfront_usd": "3642",
+    "ri_hourly_usd": "0.1386",
+    "years": 3,
+    "sku": "E8ZFW5VX39K37SVF",
+    "offer_term_code": "38NPMPTW36",
+    "rate_codes": [
+      "E8ZFW5VX39K37SVF.JRTCKXETXF.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.38NPMPTW36.6YS6EN2CT7",
+      "E8ZFW5VX39K37SVF.38NPMPTW36.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      154703,
+      154692,
+      154693
+    ]
+  },
+  {
+    "instance_type": "c6i.8xlarge",
+    "term_years": 1,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "1.36",
+    "ri_upfront_usd": "7355",
+    "ri_hourly_usd": "0",
+    "years": 1,
+    "sku": "64272PWRRRVEB4CX",
+    "offer_term_code": "6QCMYABX3D",
+    "rate_codes": [
+      "64272PWRRRVEB4CX.JRTCKXETXF.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.6QCMYABX3D.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.6QCMYABX3D.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      51780,
+      51772,
+      51773
+    ]
+  },
+  {
+    "instance_type": "c6i.8xlarge",
+    "term_years": 1,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "1.36",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.89964",
+    "years": 1,
+    "sku": "64272PWRRRVEB4CX",
+    "offer_term_code": "4NA7Y494T4",
+    "rate_codes": [
+      "64272PWRRRVEB4CX.JRTCKXETXF.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.4NA7Y494T4.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      51780,
+      51771
+    ]
+  },
+  {
+    "instance_type": "c6i.8xlarge",
+    "term_years": 1,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "1.36",
+    "ri_upfront_usd": "3753",
+    "ri_hourly_usd": "0.4284",
+    "years": 1,
+    "sku": "64272PWRRRVEB4CX",
+    "offer_term_code": "HU7G6KETJZ",
+    "rate_codes": [
+      "64272PWRRRVEB4CX.JRTCKXETXF.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.HU7G6KETJZ.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.HU7G6KETJZ.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      51780,
+      51778,
+      51779
+    ]
+  },
+  {
+    "instance_type": "c6i.8xlarge",
+    "term_years": 3,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "1.36",
+    "ri_upfront_usd": "13695",
+    "ri_hourly_usd": "0",
+    "years": 3,
+    "sku": "64272PWRRRVEB4CX",
+    "offer_term_code": "NQ3QZPMQV9",
+    "rate_codes": [
+      "64272PWRRRVEB4CX.JRTCKXETXF.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.NQ3QZPMQV9.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.NQ3QZPMQV9.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      51780,
+      51783,
+      51784
+    ]
+  },
+  {
+    "instance_type": "c6i.8xlarge",
+    "term_years": 3,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "1.36",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.59875",
+    "years": 3,
+    "sku": "64272PWRRRVEB4CX",
+    "offer_term_code": "BPH4J8HBKS",
+    "rate_codes": [
+      "64272PWRRRVEB4CX.JRTCKXETXF.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.BPH4J8HBKS.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      51780,
+      51775
+    ]
+  },
+  {
+    "instance_type": "c6i.8xlarge",
+    "term_years": 3,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "1.36",
+    "ri_upfront_usd": "7285",
+    "ri_hourly_usd": "0.2772",
+    "years": 3,
+    "sku": "64272PWRRRVEB4CX",
+    "offer_term_code": "38NPMPTW36",
+    "rate_codes": [
+      "64272PWRRRVEB4CX.JRTCKXETXF.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.38NPMPTW36.6YS6EN2CT7",
+      "64272PWRRRVEB4CX.38NPMPTW36.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      51780,
+      51769,
+      51770
+    ]
+  },
+  {
+    "instance_type": "c6i.large",
+    "term_years": 1,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "0.085",
+    "ri_upfront_usd": "460",
+    "ri_hourly_usd": "0",
+    "years": 1,
+    "sku": "G34GXEYC28NK97K3",
+    "offer_term_code": "6QCMYABX3D",
+    "rate_codes": [
+      "G34GXEYC28NK97K3.JRTCKXETXF.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.6QCMYABX3D.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.6QCMYABX3D.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      177609,
+      177601,
+      177602
+    ]
+  },
+  {
+    "instance_type": "c6i.large",
+    "term_years": 1,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "0.085",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.05623",
+    "years": 1,
+    "sku": "G34GXEYC28NK97K3",
+    "offer_term_code": "4NA7Y494T4",
+    "rate_codes": [
+      "G34GXEYC28NK97K3.JRTCKXETXF.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.4NA7Y494T4.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      177609,
+      177600
+    ]
+  },
+  {
+    "instance_type": "c6i.large",
+    "term_years": 1,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "0.085",
+    "ri_upfront_usd": "235",
+    "ri_hourly_usd": "0.02678",
+    "years": 1,
+    "sku": "G34GXEYC28NK97K3",
+    "offer_term_code": "HU7G6KETJZ",
+    "rate_codes": [
+      "G34GXEYC28NK97K3.JRTCKXETXF.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.HU7G6KETJZ.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.HU7G6KETJZ.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      177609,
+      177607,
+      177608
+    ]
+  },
+  {
+    "instance_type": "c6i.large",
+    "term_years": 3,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "0.085",
+    "ri_upfront_usd": "856",
+    "ri_hourly_usd": "0",
+    "years": 3,
+    "sku": "G34GXEYC28NK97K3",
+    "offer_term_code": "NQ3QZPMQV9",
+    "rate_codes": [
+      "G34GXEYC28NK97K3.JRTCKXETXF.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.NQ3QZPMQV9.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.NQ3QZPMQV9.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      177609,
+      177612,
+      177613
+    ]
+  },
+  {
+    "instance_type": "c6i.large",
+    "term_years": 3,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "0.085",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.03742",
+    "years": 3,
+    "sku": "G34GXEYC28NK97K3",
+    "offer_term_code": "BPH4J8HBKS",
+    "rate_codes": [
+      "G34GXEYC28NK97K3.JRTCKXETXF.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.BPH4J8HBKS.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      177609,
+      177604
+    ]
+  },
+  {
+    "instance_type": "c6i.large",
+    "term_years": 3,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "0.085",
+    "ri_upfront_usd": "455",
+    "ri_hourly_usd": "0.01732",
+    "years": 3,
+    "sku": "G34GXEYC28NK97K3",
+    "offer_term_code": "38NPMPTW36",
+    "rate_codes": [
+      "G34GXEYC28NK97K3.JRTCKXETXF.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.38NPMPTW36.6YS6EN2CT7",
+      "G34GXEYC28NK97K3.38NPMPTW36.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      177609,
+      177598,
+      177599
+    ]
+  },
+  {
+    "instance_type": "c6i.xlarge",
+    "term_years": 1,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "0.17",
+    "ri_upfront_usd": "919",
+    "ri_hourly_usd": "0",
+    "years": 1,
+    "sku": "JPN4K2NQVRWGTQGS",
+    "offer_term_code": "6QCMYABX3D",
+    "rate_codes": [
+      "JPN4K2NQVRWGTQGS.JRTCKXETXF.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.6QCMYABX3D.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.6QCMYABX3D.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      211311,
+      211303,
+      211304
+    ]
+  },
+  {
+    "instance_type": "c6i.xlarge",
+    "term_years": 1,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "0.17",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.11246",
+    "years": 1,
+    "sku": "JPN4K2NQVRWGTQGS",
+    "offer_term_code": "4NA7Y494T4",
+    "rate_codes": [
+      "JPN4K2NQVRWGTQGS.JRTCKXETXF.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.4NA7Y494T4.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      211311,
+      211302
+    ]
+  },
+  {
+    "instance_type": "c6i.xlarge",
+    "term_years": 1,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "0.17",
+    "ri_upfront_usd": "469",
+    "ri_hourly_usd": "0.05355",
+    "years": 1,
+    "sku": "JPN4K2NQVRWGTQGS",
+    "offer_term_code": "HU7G6KETJZ",
+    "rate_codes": [
+      "JPN4K2NQVRWGTQGS.JRTCKXETXF.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.HU7G6KETJZ.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.HU7G6KETJZ.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      211311,
+      211309,
+      211310
+    ]
+  },
+  {
+    "instance_type": "c6i.xlarge",
+    "term_years": 3,
+    "purchase_option": "All Upfront",
+    "on_demand_hourly_usd": "0.17",
+    "ri_upfront_usd": "1712",
+    "ri_hourly_usd": "0",
+    "years": 3,
+    "sku": "JPN4K2NQVRWGTQGS",
+    "offer_term_code": "NQ3QZPMQV9",
+    "rate_codes": [
+      "JPN4K2NQVRWGTQGS.JRTCKXETXF.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.NQ3QZPMQV9.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.NQ3QZPMQV9.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      211311,
+      211314,
+      211315
+    ]
+  },
+  {
+    "instance_type": "c6i.xlarge",
+    "term_years": 3,
+    "purchase_option": "No Upfront",
+    "on_demand_hourly_usd": "0.17",
+    "ri_upfront_usd": "0",
+    "ri_hourly_usd": "0.07484",
+    "years": 3,
+    "sku": "JPN4K2NQVRWGTQGS",
+    "offer_term_code": "BPH4J8HBKS",
+    "rate_codes": [
+      "JPN4K2NQVRWGTQGS.JRTCKXETXF.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.BPH4J8HBKS.6YS6EN2CT7"
+    ],
+    "original_record_numbers": [
+      211311,
+      211306
+    ]
+  },
+  {
+    "instance_type": "c6i.xlarge",
+    "term_years": 3,
+    "purchase_option": "Partial Upfront",
+    "on_demand_hourly_usd": "0.17",
+    "ri_upfront_usd": "911",
+    "ri_hourly_usd": "0.03465",
+    "years": 3,
+    "sku": "JPN4K2NQVRWGTQGS",
+    "offer_term_code": "38NPMPTW36",
+    "rate_codes": [
+      "JPN4K2NQVRWGTQGS.JRTCKXETXF.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.38NPMPTW36.6YS6EN2CT7",
+      "JPN4K2NQVRWGTQGS.38NPMPTW36.2TG2D8R56U"
+    ],
+    "original_record_numbers": [
+      211311,
+      211300,
+      211301
+    ]
+  }
+]
