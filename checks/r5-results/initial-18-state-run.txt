@@ -1,0 +1,5 @@
+Source version: 20261015191316; 393,649 original rows
+Options independently reconstructed: 54
+Recorded checks: 53454; mismatches: 0
+Coverage: {"constraints": 648, "scenarios": 5454, "sensitivity": 5454, "ui": 18}
+PASS
